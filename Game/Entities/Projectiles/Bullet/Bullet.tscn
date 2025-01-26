@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbx3quodwyahw"]
+
+[ext_resource type="Script" path="res://Game/Entities/Projectiles/Bullet/Bullet.gd" id="1_y2eqn"]
+[ext_resource type="Material" uid="uid://dlgoqvcbhuudy" path="res://Game/Entities/Projectiles/Bullet/BulletParticles.tres" id="2_xfnkh"]
+[ext_resource type="Texture2D" uid="uid://cx8c486ox4gv0" path="res://Game/Entities/Player/Air.png" id="3_gp701"]
+[ext_resource type="Script" path="res://Game/Entities/Suck.gd" id="3_j30i6"]
+[ext_resource type="Texture2D" uid="uid://dy7gx8fyk1wsm" path="res://Game/Entities/Projectiles/Bullet/AlienCatStuffBullet3.png" id="3_w0rnx"]
+
+[sub_resource type="Gradient" id="Gradient_jxe4e"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pbrtx"]
+gradient = SubResource("Gradient_jxe4e")
+width = 42
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcg2g"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tm2h7"]
+radius = 59.2284
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 512
+collision_mask = 64
+script = ExtResource("1_y2eqn")
+
+[node name="Middle" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Shadow" type="Sprite2D" parent="Middle"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+scale = Vector2(2.80952, 3)
+texture = SubResource("GradientTexture2D_pbrtx")
+
+[node name="Particles" type="GPUParticles2D" parent="Middle"]
+unique_name_in_owner = true
+position = Vector2(-10, -2.30926e-14)
+rotation = 3.14159
+amount = 64
+process_material = ExtResource("2_xfnkh")
+texture = ExtResource("3_gp701")
+lifetime = 3.0
+visibility_rect = Rect2(-100, -250, 5000, 500)
+
+[node name="Sprite" type="Sprite2D" parent="Middle"]
+unique_name_in_owner = true
+texture = ExtResource("3_w0rnx")
+flip_h = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Middle/Sprite"]
+position = Vector2(-10, -2.30926e-14)
+rotation = 3.14159
+remote_path = NodePath("../../Particles")
+update_scale = false
+
+[node name="Ray" type="ShapeCast2D" parent="."]
+unique_name_in_owner = true
+visible = false
+shape = SubResource("CircleShape2D_jcg2g")
+target_position = Vector2(100.935, 0)
+max_results = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+visible = false
+shape = SubResource("CircleShape2D_tm2h7")
+
+[node name="Suck" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_j30i6")
+entity = "Bullet"
+free_when_sucked = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="finished" from="Middle/Particles" to="." method="despawn"]
+[connection signal="sucked_up" from="Suck" to="." method="destroy"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

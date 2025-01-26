@@ -1,0 +1,435 @@
+[gd_scene load_steps=42 format=3 uid="uid://d2yanptj8uep2"]
+
+[ext_resource type="Script" path="res://Game/Entities/Player/player.gd" id="1_r4dhy"]
+[ext_resource type="PackedScene" uid="uid://d23oro2u5usp6" path="res://Game/Objects/Items/Heart.tscn" id="2_vv2tu"]
+[ext_resource type="Texture2D" uid="uid://itiypujnp37o" path="res://icon.png" id="3_dov7h"]
+[ext_resource type="PackedScene" uid="uid://cxl37uqr6qlou" path="res://Game/Screens/EndScreen.tscn" id="3_i03ve"]
+[ext_resource type="Texture2D" uid="uid://bgukey4fjalqe" path="res://Game/Objects/Items/Textures/AlienCatStuff2.png" id="4_4lxpx"]
+[ext_resource type="Texture2D" uid="uid://cx8c486ox4gv0" path="res://Game/Entities/Player/Air.png" id="4_14pu5"]
+[ext_resource type="Material" uid="uid://0ua2b5pcb16m" path="res://Game/Entities/Player/HitShader.tres" id="4_o10bi"]
+[ext_resource type="Texture2D" uid="uid://suuu7hkdppby" path="res://Game/Entities/Vacuum/AlienCatStuffNozzle.png" id="5_2edit"]
+[ext_resource type="Texture2D" uid="uid://b1hqqltsh7dgw" path="res://Game/Entities/Player/AlienCatStuff2.png" id="5_2istk"]
+[ext_resource type="Texture2D" uid="uid://bwes4c5y2aqwt" path="res://Game/Entities/Player/AlienCatStuff1.png" id="5_c56e2"]
+[ext_resource type="Texture2D" uid="uid://5fxvh2m3tm2k" path="res://Game/Entities/Human/AlienCatStuffHuman4.png" id="8_u7kum"]
+[ext_resource type="Texture2D" uid="uid://b3lxoycynjlip" path="res://Game/Entities/Player/AlienCatStuffHeartFull.png" id="9_xxi31"]
+[ext_resource type="Material" uid="uid://c5j46aj8mnqch" path="res://Game/Entities/Player/VacuumParticles.tres" id="10_6nu1m"]
+[ext_resource type="Texture2D" uid="uid://jerotc2r3wat" path="res://Game/Entities/Player/AlienCatStuffHeartTape.png" id="11_nr1xr"]
+[ext_resource type="Texture2D" uid="uid://bw1h1f7yrj7n" path="res://Game/Entities/Police/Pistol/AlienCatStuffCop6.png" id="13_n7o3i"]
+
+[sub_resource type="Gradient" id="Gradient_bkmim"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_daoix"]
+gradient = SubResource("Gradient_bkmim")
+width = 384
+height = 89
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7tyf"]
+atlas = ExtResource("4_4lxpx")
+region = Rect2(282, 46, 118, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50e72"]
+atlas = ExtResource("4_4lxpx")
+region = Rect2(235, 166, 193, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mta07"]
+atlas = ExtResource("4_4lxpx")
+region = Rect2(253, 285, 152, 106)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgaga"]
+radius = 39.0
+height = 338.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpcbh"]
+radius = 83.0
+height = 274.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f3y5l"]
+radius = 146.168
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_05ox2"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rowmv"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_asgje"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b8tfw"]
+animation = &"Wake"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r56h6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7iaas"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cu4hx"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ds6se"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8kceo"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_37l2m"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b077y"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x6kgq"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_w2ic5"]
+states/Idle/node = SubResource("AnimationNodeAnimation_05ox2")
+states/Idle/position = Vector2(367, 100)
+states/Run/node = SubResource("AnimationNodeAnimation_asgje")
+states/Run/position = Vector2(558, 49)
+"states/Run 2/node" = SubResource("AnimationNodeAnimation_rowmv")
+"states/Run 2/position" = Vector2(558, 173)
+states/Wake/node = SubResource("AnimationNodeAnimation_b8tfw")
+states/Wake/position = Vector2(367, 192)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_r56h6"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_7iaas"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_cu4hx"), "Run 2", "Idle", SubResource("AnimationNodeStateMachineTransition_ds6se"), "Run", "Run 2", SubResource("AnimationNodeStateMachineTransition_8kceo"), "Run 2", "Run", SubResource("AnimationNodeStateMachineTransition_37l2m"), "Idle", "Wake", SubResource("AnimationNodeStateMachineTransition_b077y"), "Wake", "Idle", SubResource("AnimationNodeStateMachineTransition_x6kgq")]
+
+[sub_resource type="Animation" id="Animation_qo2le"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f026a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Cat:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-37, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Cat:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3pp5v"]
+resource_name = "Run"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.574349, -2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -15), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i3du1"]
+resource_name = "Wake"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Cat:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-135, -0.25, 0, 0.24617, 41, -37, -0.25383, -56, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Cat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-282, -0.25, 0, 0.0666667, -43, -347, -0.0666667, -4, 0.1, -3, -125, -0.0538297, -63, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.5)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mjy5i"]
+_data = {
+"Idle": SubResource("Animation_qo2le"),
+"RESET": SubResource("Animation_f026a"),
+"Run": SubResource("Animation_3pp5v"),
+"Wake": SubResource("Animation_i3du1")
+}
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("right_collisions", "left_collisions")]
+collision_mask = 6
+script = ExtResource("1_r4dhy")
+right_collisions = [NodePath("Pickup/RightPickup"), NodePath("Vacuum/RightVacuum")]
+left_collisions = [NodePath("Pickup/LeftPickup"), NodePath("Vacuum/LeftVacuum")]
+heart = ExtResource("2_vv2tu")
+death_screen = ExtResource("3_i03ve")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 6)
+texture = SubResource("GradientTexture2D_daoix")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Cat" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+material = ExtResource("4_o10bi")
+position = Vector2(-37, -125)
+texture = ExtResource("5_c56e2")
+
+[node name="NotAngry" type="Sprite2D" parent="Visuals/Cat"]
+unique_name_in_owner = true
+texture = ExtResource("5_2istk")
+
+[node name="Cat2" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+visible = false
+material = ExtResource("4_o10bi")
+position = Vector2(-136, -280)
+texture = ExtResource("5_c56e2")
+
+[node name="Items" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+position = Vector2(102, -162)
+
+[node name="Item" type="Sprite2D" parent="Visuals/Items"]
+visible = false
+position = Vector2(1, 39)
+rotation = 0.776421
+texture = ExtResource("3_dov7h")
+
+[node name="Item2" type="Sprite2D" parent="Visuals/Items"]
+visible = false
+position = Vector2(7, 47)
+rotation = 0.296801
+texture = SubResource("AtlasTexture_t7tyf")
+
+[node name="Item3" type="Sprite2D" parent="Visuals/Items"]
+visible = false
+position = Vector2(4, 43)
+rotation = 1.30699
+texture = SubResource("AtlasTexture_50e72")
+
+[node name="Item4" type="Sprite2D" parent="Visuals/Items"]
+visible = false
+position = Vector2(-7, 27)
+rotation = 0.13236
+texture = SubResource("AtlasTexture_mta07")
+
+[node name="Line2D" type="Line2D" parent="Visuals/Items"]
+position = Vector2(54, 49)
+rotation = 0.13236
+points = PackedVector2Array(-31.7817, -18.9716, -39.9083, -26.9691, -47.5069, -31.0015, -53.7184, -32.1921, -60.5252, -30.2771)
+width = 24.0
+default_color = Color(0.345098, 0.345098, 0.345098, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Item5" type="Sprite2D" parent="Visuals/Items/Line2D"]
+texture = ExtResource("5_2edit")
+
+[node name="VacuumPipe" type="Marker2D" parent="Visuals/Items/Line2D"]
+unique_name_in_owner = true
+position = Vector2(-60.5252, -30.2771)
+rotation = -0.13236
+
+[node name="Line" type="Line2D" parent="Visuals/Items/Line2D/VacuumPipe"]
+unique_name_in_owner = true
+width = 24.0
+default_color = Color(0.343861, 0.343861, 0.343861, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="DropPoint" type="Marker2D" parent="Visuals"]
+unique_name_in_owner = true
+position = Vector2(174, 18)
+
+[node name="VacuumPoint" type="Marker2D" parent="Visuals"]
+unique_name_in_owner = true
+position = Vector2(165, -103)
+rotation = 0.634181
+
+[node name="Particles" type="GPUParticles2D" parent="Visuals/VacuumPoint"]
+unique_name_in_owner = true
+amount = 64
+process_material = ExtResource("10_6nu1m")
+texture = ExtResource("4_14pu5")
+lifetime = 0.3
+local_coords = true
+
+[node name="Sprites" type="Node2D" parent="Visuals/VacuumPoint"]
+unique_name_in_owner = true
+position = Vector2(-6.23142, 3.34207)
+rotation = -0.663072
+
+[node name="Human" type="Sprite2D" parent="Visuals/VacuumPoint/Sprites"]
+visible = false
+position = Vector2(121.429, 21.5167)
+rotation = 0.0399955
+texture = ExtResource("8_u7kum")
+
+[node name="Police" type="Sprite2D" parent="Visuals/VacuumPoint/Sprites"]
+visible = false
+position = Vector2(117.835, 7.40699)
+rotation = 0.0399955
+texture = ExtResource("13_n7o3i")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_xgaga")
+
+[node name="Pickup" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -18)
+collision_layer = 0
+collision_mask = 12
+input_pickable = false
+monitorable = false
+
+[node name="RightPickup" type="CollisionShape2D" parent="Pickup"]
+position = Vector2(136, 0)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_gpcbh")
+
+[node name="LeftPickup" type="CollisionShape2D" parent="Pickup"]
+position = Vector2(-136, 0)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_gpcbh")
+
+[node name="Vacuum" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -11)
+collision_layer = 64
+collision_mask = 920
+input_pickable = false
+monitorable = false
+
+[node name="RightVacuum" type="CollisionShape2D" parent="Vacuum"]
+position = Vector2(207, 0)
+shape = SubResource("CircleShape2D_f3y5l")
+
+[node name="LeftVacuum" type="CollisionShape2D" parent="Vacuum"]
+position = Vector2(-207, 0)
+shape = SubResource("CircleShape2D_f3y5l")
+
+[node name="Anim" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%Anim/..")
+callback_mode_process = 2
+tree_root = SubResource("AnimationNodeStateMachine_w2ic5")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+callback_mode_process = 2
+libraries = {
+"": SubResource("AnimationLibrary_mjy5i")
+}
+
+[node name="Health" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -205)
+
+[node name="Heart1" type="Node2D" parent="Health"]
+position = Vector2(-50, 0)
+rotation = -0.261799
+
+[node name="Heart1" type="Sprite2D" parent="Health/Heart1"]
+unique_name_in_owner = true
+position = Vector2(0, -128)
+texture = ExtResource("9_xxi31")
+
+[node name="TapedHeart1" type="Sprite2D" parent="Health/Heart1"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -128)
+texture = ExtResource("11_nr1xr")
+
+[node name="Heart2" type="Node2D" parent="Health"]
+position = Vector2(0, -134)
+
+[node name="Heart2" type="Sprite2D" parent="Health/Heart2"]
+unique_name_in_owner = true
+texture = ExtResource("9_xxi31")
+
+[node name="TapedHeart2" type="Sprite2D" parent="Health/Heart2"]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("11_nr1xr")
+
+[node name="Heart3" type="Node2D" parent="Health"]
+position = Vector2(50, 0)
+rotation = 0.261799
+
+[node name="Heart3" type="Sprite2D" parent="Health/Heart3"]
+unique_name_in_owner = true
+position = Vector2(0, -128)
+texture = ExtResource("9_xxi31")
+
+[node name="TapedHeart3" type="Sprite2D" parent="Health/Heart3"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -128)
+texture = ExtResource("11_nr1xr")

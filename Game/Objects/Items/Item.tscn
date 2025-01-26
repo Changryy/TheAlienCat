@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://vucgvegws4xn"]
+
+[ext_resource type="Script" path="res://Game/Objects/Items/Item.gd" id="1_02nof"]
+[ext_resource type="Script" path="res://Game/Entities/Suck.gd" id="2_qhk2e"]
+
+[node name="Item" type="CharacterBody2D" groups=["trash"]]
+collision_layer = 8
+collision_mask = 14
+script = ExtResource("1_02nof")
+
+[node name="Middle" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Suck" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_qhk2e")

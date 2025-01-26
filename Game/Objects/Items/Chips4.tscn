@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh01h5w0gql6g"]
+
+[ext_resource type="PackedScene" uid="uid://vucgvegws4xn" path="res://Game/Objects/Items/Item.tscn" id="1_ef32o"]
+[ext_resource type="Texture2D" uid="uid://crj7yjlylxhde" path="res://Game/Objects/Items/Textures/AlienCatStuffChips.png" id="2_ykj8h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vn0px"]
+radius = 9.99999
+height = 74.0
+
+[sub_resource type="Gradient" id="Gradient_ch43h"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0serv"]
+gradient = SubResource("Gradient_ch43h")
+height = 19
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Can" instance=ExtResource("1_ef32o")]
+hold_index = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_vn0px")
+
+[node name="Middle" parent="." index="1"]
+position = Vector2(0, -10)
+
+[node name="Shadow" type="Sprite2D" parent="Middle" index="0"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0, 11)
+texture = SubResource("GradientTexture2D_0serv")
+
+[node name="Sprite" type="Sprite2D" parent="Middle" index="1"]
+unique_name_in_owner = true
+rotation = -0.137202
+texture = ExtResource("2_ykj8h")
+flip_h = true
+
+[node name="Suck" parent="." index="2"]
+entity = "Bag without chips"

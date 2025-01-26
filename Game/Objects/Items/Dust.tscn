@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bks4gphfubcgv"]
+
+[ext_resource type="PackedScene" uid="uid://vucgvegws4xn" path="res://Game/Objects/Items/Item.tscn" id="1_qd0u7"]
+[ext_resource type="Texture2D" uid="uid://bjd6mgequ1n4w" path="res://Game/Objects/Items/Textures/AlienCatStuffDust.png" id="2_ch4tl"]
+[ext_resource type="Script" path="res://Game/Objects/Items/Dust.gd" id="2_xj55l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7fvl6"]
+radius = 25.0
+height = 78.0
+
+[sub_resource type="Gradient" id="Gradient_b4qib"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7464v"]
+gradient = SubResource("Gradient_b4qib")
+width = 284
+height = 99
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Dust" groups=["Dust"] instance=ExtResource("1_qd0u7")]
+script = ExtResource("2_xj55l")
+always_under = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+unique_name_in_owner = true
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_7fvl6")
+
+[node name="Shadow" type="Sprite2D" parent="Middle" index="0"]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+texture = SubResource("GradientTexture2D_7464v")
+
+[node name="Node2D" type="Node2D" parent="Middle" index="1"]
+skew = 0.610865
+
+[node name="Sprite" type="Sprite2D" parent="Middle/Node2D" index="0"]
+unique_name_in_owner = true
+texture = ExtResource("2_ch4tl")

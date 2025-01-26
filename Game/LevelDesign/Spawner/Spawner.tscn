@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddx7njo67slew"]
+
+[ext_resource type="Script" path="res://Game/LevelDesign/Spawner/Spawner.gd" id="1_2yjuh"]
+
+[node name="Spawner" type="Marker2D"]
+z_index = -10
+gizmo_extents = 512.0
+script = ExtResource("1_2yjuh")
+min_dist = null
+max_dist = null
+
+[node name="EndPoint" type="Marker2D" parent="."]
+position = Vector2(512, 512)
+gizmo_extents = 512.0
+
+[node name="Line" type="Line2D" parent="EndPoint"]
+points = PackedVector2Array(0, 0, -512, 0, -512, -512, 0, -512, 0, 0)
+width = 64.0
+default_color = Color(1, 0.736799, 0, 0.219608)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true

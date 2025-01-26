@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://f41dxd0oq02y"]
+
+[ext_resource type="Script" path="res://Game/Global/Scene/Scene.gd" id="1_ltn0c"]
+[ext_resource type="PackedScene" uid="uid://dbx3quodwyahw" path="res://Game/Entities/Projectiles/Bullet/Bullet.tscn" id="2_js7s5"]
+[ext_resource type="PackedScene" uid="uid://ltg07hbqmo18" path="res://Game/Levels/Start/Start.tscn" id="3_x82al"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e57dt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcin1"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Scene" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_ltn0c")
+bullet = ExtResource("2_js7s5")
+start_scene = ExtResource("3_x82al")
+
+[node name="Slide" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_e57dt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gcin1")
+show_percentage = false

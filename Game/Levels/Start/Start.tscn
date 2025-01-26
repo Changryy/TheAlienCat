@@ -1,0 +1,612 @@
+[gd_scene load_steps=29 format=3 uid="uid://ltg07hbqmo18"]
+
+[ext_resource type="PackedScene" uid="uid://d2yanptj8uep2" path="res://Game/Entities/Player/Player.tscn" id="1_ded2e"]
+[ext_resource type="Script" path="res://Game/Levels/Start/Start.gd" id="1_yh0ro"]
+[ext_resource type="PackedScene" uid="uid://cw131rlomyb1k" path="res://Game/Levels/City/City.tscn" id="2_d1nks"]
+[ext_resource type="Texture2D" uid="uid://bo2wx2ybecnob" path="res://Game/Objects/Background/AlienCatStuffDoor.png" id="3_0ua67"]
+[ext_resource type="Texture2D" uid="uid://bhe1ntij67j8l" path="res://Game/Objects/Background/Painting2.png" id="4_0igvy"]
+[ext_resource type="PackedScene" uid="uid://c4200bkegwojv" path="res://Game/Entities/Vacuum/Vacuum.tscn" id="4_ai4y0"]
+[ext_resource type="PackedScene" uid="uid://ckne10jsp8q20" path="res://Game/Objects/Items/Fish.tscn" id="4_gj8nc"]
+[ext_resource type="Texture2D" uid="uid://cwfbbk1vw5gq1" path="res://Game/Objects/Background/AlienCatStuffDoorOpen.png" id="4_rf2a7"]
+[ext_resource type="PackedScene" uid="uid://y3v3p522myjy" path="res://Game/Objects/Items/Bell.tscn" id="5_xa8ro"]
+[ext_resource type="PackedScene" uid="uid://qjjhfgfotqdh" path="res://Game/Objects/Items/Mouse.tscn" id="6_26b41"]
+[ext_resource type="PackedScene" uid="uid://byuo6ocu543do" path="res://Game/Objects/Furniture/Closet/Closet.tscn" id="7_5uvmg"]
+[ext_resource type="Texture2D" uid="uid://cfyqdjir3iwoy" path="res://Game/Objects/Background/Clock.png" id="7_wfe33"]
+[ext_resource type="PackedScene" uid="uid://bk6eajlsornc" path="res://Game/Objects/Furniture/LitterBox/LitterBox.tscn" id="8_37e5s"]
+[ext_resource type="Texture2D" uid="uid://csfkh3rwibqsl" path="res://Game/Objects/Background/Painting.png" id="8_g3wao"]
+[ext_resource type="PackedScene" uid="uid://k8xsquh868qg" path="res://Game/Objects/Furniture/Playground/Playground.tscn" id="10_pt6im"]
+[ext_resource type="PackedScene" uid="uid://brn8qg1k343e7" path="res://Game/Objects/Furniture/Bed/Bed.tscn" id="10_tec86"]
+[ext_resource type="Texture2D" uid="uid://vhf1llbo8gpo" path="res://Game/Objects/Furniture/Closet/AlienCatStuffClosetOpen.png" id="10_xl2wy"]
+[ext_resource type="Texture2D" uid="uid://ctkhoivrpo5c2" path="res://Game/Objects/Furniture/Bed/AlienCatStuffCatBedNap.png" id="16_gek2x"]
+[ext_resource type="PackedScene" uid="uid://bks4gphfubcgv" path="res://Game/Objects/Items/Dust.tscn" id="17_4wvws"]
+[ext_resource type="PackedScene" uid="uid://cdh765btqttjm" path="res://Game/Objects/Furniture/Drawer/Drawer.tscn" id="17_7crsv"]
+[ext_resource type="PackedScene" uid="uid://dx8clqpntmqmy" path="res://Game/Objects/Items/VacuumTip.tscn" id="17_ljv84"]
+[ext_resource type="PackedScene" uid="uid://est117fali4" path="res://Game/Objects/Pickups/Battery/Battery.tscn" id="20_afn57"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7o0rs"]
+radius = 35.2278
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_api2q"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5uyn"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(0.701961, 0.933333, 0.988235, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjxr7"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5l4o"]
+bg_color = Color(0.180392, 0.454902, 0.521569, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m44oy"]
+color = Color(1, 1, 1, 1)
+grow_begin = 16.0
+grow_end = 16.0
+thickness = 4
+
+[node name="Start" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_yh0ro")
+next_scene = ExtResource("2_d1nks")
+metadata/_edit_horizontal_guides_ = [93.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
+offset_top = -1058.0
+offset_right = 3076.0
+offset_bottom = 902.0
+color = Color(0.208639, 0.149299, 0.384593, 1)
+metadata/_edit_lock_ = true
+
+[node name="StartCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 93)
+anchor_mode = 0
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 3076
+limit_bottom = 1080
+drag_top_margin = 1.0
+drag_bottom_margin = 1.0
+
+[node name="BG" type="Node2D" parent="."]
+z_index = -2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BG"]
+collision_layer = 2
+collision_mask = 61
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BG/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(0, 449, 0, 1080, 3076, 1080, 3076, 449)
+
+[node name="ColorRect" type="ColorRect" parent="BG/StaticBody2D"]
+offset_top = 449.0
+offset_right = 3076.0
+offset_bottom = 1080.0
+color = Color(0.174144, 0.174144, 0.174144, 1)
+
+[node name="Painting" type="Sprite2D" parent="BG"]
+position = Vector2(1542.5, 210)
+texture = ExtResource("8_g3wao")
+
+[node name="Painting2" type="Sprite2D" parent="BG/Painting"]
+texture = ExtResource("4_0igvy")
+
+[node name="Clock" type="Sprite2D" parent="BG"]
+position = Vector2(700, 220)
+texture = ExtResource("7_wfe33")
+
+[node name="AlienCatStuffDoor" type="Sprite2D" parent="BG"]
+position = Vector2(2344, 204)
+texture = ExtResource("3_0ua67")
+
+[node name="OpenDoor" type="Sprite2D" parent="BG/AlienCatStuffDoor"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(2.5, 1)
+texture = ExtResource("4_rf2a7")
+
+[node name="DoorArea" type="Area2D" parent="BG/AlienCatStuffDoor"]
+position = Vector2(0, 232)
+collision_layer = 0
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/AlienCatStuffDoor/DoorArea"]
+shape = SubResource("CircleShape2D_7o0rs")
+
+[node name="Entities" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Player" parent="Entities" node_paths=PackedStringArray("vacuum") instance=ExtResource("1_ded2e")]
+unique_name_in_owner = true
+position = Vector2(385, 650)
+vacuum = NodePath("../VacuumCleaner")
+start_with_vacuum = false
+has_control = false
+
+[node name="Camera" type="Camera2D" parent="Entities/Player"]
+unique_name_in_owner = true
+position = Vector2(0, -162)
+limit_left = 0
+limit_top = 0
+limit_right = 3076
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_top_margin = 1.0
+drag_bottom_margin = 1.0
+
+[node name="Fish" parent="Entities" instance=ExtResource("4_gj8nc")]
+position = Vector2(717, 938)
+
+[node name="Bell" parent="Entities" instance=ExtResource("5_xa8ro")]
+position = Vector2(2386, 563)
+
+[node name="Mouse" parent="Entities" instance=ExtResource("6_26b41")]
+position = Vector2(1753, 808)
+
+[node name="Closet" parent="Entities" instance=ExtResource("7_5uvmg")]
+position = Vector2(1153.5, 544)
+
+[node name="OpenCloset" type="Sprite2D" parent="Entities/Closet"]
+unique_name_in_owner = true
+position = Vector2(26, -237.5)
+texture = ExtResource("10_xl2wy")
+
+[node name="LitterBox" parent="Entities" instance=ExtResource("8_37e5s")]
+position = Vector2(2872, 589)
+
+[node name="Bed" parent="Entities" instance=ExtResource("10_tec86")]
+position = Vector2(280, 561)
+
+[node name="Sleeping" type="Sprite2D" parent="Entities/Bed"]
+unique_name_in_owner = true
+position = Vector2(0, -91.5)
+texture = ExtResource("16_gek2x")
+
+[node name="Playground" parent="Entities" instance=ExtResource("10_pt6im")]
+position = Vector2(2391, 1004)
+
+[node name="Drawer" parent="Entities" instance=ExtResource("17_7crsv")]
+position = Vector2(2001, 514)
+
+[node name="VacuumCleaner" parent="Entities" instance=ExtResource("4_ai4y0")]
+unique_name_in_owner = true
+position = Vector2(1070, -311)
+
+[node name="VacuumTip" parent="Entities" instance=ExtResource("17_ljv84")]
+unique_name_in_owner = true
+position = Vector2(1299, -332)
+
+[node name="Dust" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(520, 598)
+
+[node name="Dust2" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(1062, 943)
+
+[node name="Dust3" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(1721, 967)
+
+[node name="Dust4" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(2322, 711)
+
+[node name="Dust5" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(2029, 548)
+
+[node name="Dust6" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(2005, 913)
+
+[node name="Dust7" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(305, 992)
+
+[node name="Dust8" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(1313, 987)
+
+[node name="Dust9" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(575, 1000)
+
+[node name="Dust10" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(250, 862)
+
+[node name="Dust11" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(441, 727)
+
+[node name="Dust12" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(92, 603)
+
+[node name="Dust13" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(844, 505)
+
+[node name="Dust14" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(2107, 729)
+
+[node name="Dust15" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(2484, 617)
+
+[node name="Dust16" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(2798, 806)
+
+[node name="Dust17" parent="Entities" instance=ExtResource("17_4wvws")]
+position = Vector2(2948, 939)
+
+[node name="Battery" parent="Entities" node_paths=PackedStringArray("spawn_pos") instance=ExtResource("20_afn57")]
+unique_name_in_owner = true
+position = Vector2(2641, 674)
+spawn_pos = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Entities/Battery"]
+position = Vector2(189, -170)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Objectives" type="MarginContainer" parent="UI"]
+unique_name_in_owner = true
+offset_right = 81.0
+offset_bottom = 54.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 45
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Objectives"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Objectives/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Objectives"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Objectives/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Objectives/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Clean" type="Label" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Clean your room 1/10"
+
+[node name="CleanLine" type="HSeparator" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer/Clean"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_api2q")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Pickup" type="Label" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pick up the vacuum cleaner"
+
+[node name="PickupLine" type="HSeparator" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer2/Pickup"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_api2q")
+
+[node name="Vacuum" type="HBoxContainer" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Vacuum" type="Label" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer/Vacuum"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Vacuum clean the floor"
+
+[node name="VacuumLine" type="HSeparator" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer/Vacuum/Vacuum"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_api2q")
+
+[node name="Vacuum2" type="HBoxContainer" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Charge" type="Label" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer/Vacuum2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Recharge your vacuum cleaner"
+
+[node name="ChargeLine" type="HSeparator" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer/Vacuum2/Charge"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_api2q")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Walk" type="Label" parent="UI/Objectives/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Go for a walk"
+
+[node name="Start" type="Control" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="MarginContainer" parent="UI/Start"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -867.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_top = 544
+theme_override_constants/margin_right = 110
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/Start/Start"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UI/Start/Start/CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Start/Start/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="UI/Start/Start/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 110
+text = "The Alien Cat"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Start/Start/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Start" type="Button" parent="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_color = Color(0.181473, 0.455373, 0.520366, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xjxr7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k5uyn")
+text = "Play"
+
+[node name="Control" type="Control" parent="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Start/Start/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144.07, 0)
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_color = Color(0.181473, 0.455373, 0.520366, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xjxr7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k5uyn")
+text = "Settings"
+
+[node name="Control" type="Control" parent="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/Start/Start/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(311.355, 0)
+layout_mode = 2
+
+[node name="Credits" type="Button" parent="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_color = Color(0.181473, 0.455373, 0.520366, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xjxr7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k5uyn")
+text = "Credits"
+
+[node name="Control" type="Control" parent="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Credits" type="PopupPanel" parent="UI/Start"]
+transparent_bg = true
+initial_position = 2
+size = Vector2i(1283, 696)
+transparent = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_t5l4o")
+
+[node name="CenterContainer" type="MarginContainer" parent="UI/Start/Credits"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1283.0
+offset_bottom = 696.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="Label" type="RichTextLabel" parent="UI/Start/Credits/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "Dedicated to [color=cyan]MudkipWorld[/color]
+Code by [color=red]Lindo[/color]
+Art by [color=blue]SolusAlpha[/color]
+AlienCat species by [color=cyan]MudkipWorld[/color]
+Time spent on project: [color=gray]40 hours[/color]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Settings" type="PopupPanel" parent="UI/Start"]
+auto_translate_mode = 1
+transparent_bg = true
+initial_position = 2
+size = Vector2i(632, 515)
+transparent = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_t5l4o")
+
+[node name="CenterContainer" type="MarginContainer" parent="UI/Start/Settings"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 632.0
+offset_bottom = 515.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Start/Settings/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Start/Settings/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Accessibility"
+
+[node name="HSeparator" type="HSeparator" parent="UI/Start/Settings/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_m44oy")
+
+[node name="Control" type="Control" parent="UI/Start/Settings/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 11.73)
+layout_mode = 2
+
+[node name="BlindMode" type="Button" parent="UI/Start/Settings/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_color = Color(0.181473, 0.455373, 0.520366, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xjxr7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_k5uyn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k5uyn")
+text = "Blind Mode"
+
+[connection signal="body_entered" from="BG/AlienCatStuffDoor/DoorArea" to="." method="_on_door_area_body_entered"]
+[connection signal="placed_item" from="Entities/Player" to="." method="_on_player_placed_item"]
+[connection signal="picked_up" from="Entities/Battery" to="." method="_on_battery_picked_up"]
+[connection signal="pressed" from="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer2/Settings" to="UI/Start/Settings" method="popup_centered"]
+[connection signal="pressed" from="UI/Start/Start/CenterContainer/VBoxContainer/HBoxContainer3/Credits" to="UI/Start/Credits" method="popup_centered"]
+[connection signal="pressed" from="UI/Start/Settings/CenterContainer/VBoxContainer/BlindMode" to="." method="_on_blind_mode_pressed"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://damem1reyk78e"]
+
+[ext_resource type="Script" path="res://Game/Levels/LoadMaterials/LoadingScreen.gd" id="1_mxunp"]
+[ext_resource type="PackedScene" uid="uid://ltg07hbqmo18" path="res://Game/Levels/Start/Start.tscn" id="2_hq1wj"]
+[ext_resource type="Material" uid="uid://0ua2b5pcb16m" path="res://Game/Entities/Player/HitShader.tres" id="3_ui60n"]
+[ext_resource type="Material" uid="uid://c5j46aj8mnqch" path="res://Game/Entities/Player/VacuumParticles.tres" id="4_08d32"]
+[ext_resource type="Material" uid="uid://dlgoqvcbhuudy" path="res://Game/Entities/Projectiles/Bullet/BulletParticles.tres" id="5_8tank"]
+
+[node name="LoadingScreen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_mxunp")
+next_scene = ExtResource("2_hq1wj")
+materials = Array[Material]([ExtResource("3_ui60n"), ExtResource("4_08d32"), ExtResource("5_8tank")])
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1

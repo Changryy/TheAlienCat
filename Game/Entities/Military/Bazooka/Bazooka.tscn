@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu3diriki8pyd"]
+
+[ext_resource type="Script" path="res://Game/Entities/Military/Bazooka/Bazooka.gd" id="1_mpaiy"]
+[ext_resource type="Texture2D" uid="uid://itiypujnp37o" path="res://icon.png" id="2_y2sav"]
+[ext_resource type="Script" path="res://Game/Entities/Suck.gd" id="3_rq1li"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xpsy"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i1ll8"]
+radius = 1000.0
+
+[node name="Bazooka" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 70
+script = ExtResource("1_mpaiy")
+active = null
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Middle" type="Marker2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/Middle"]
+texture = ExtResource("2_y2sav")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Visuals/Middle"]
+position = Vector2(0, -194)
+texture = ExtResource("2_y2sav")
+
+[node name="Barrel" type="Marker2D" parent="Visuals/Middle"]
+unique_name_in_owner = true
+position = Vector2(0, -195)
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_5xpsy")
+
+[node name="Detection" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+input_pickable = false
+monitorable = false
+
+[node name="Detect" type="CollisionShape2D" parent="Detection"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_i1ll8")
+
+[node name="Suck" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_rq1li")
+entity = "Green human with tube"
+is_alive = true

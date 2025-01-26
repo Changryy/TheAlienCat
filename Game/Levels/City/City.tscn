@@ -1,0 +1,1162 @@
+[gd_scene load_steps=42 format=3 uid="uid://cw131rlomyb1k"]
+
+[ext_resource type="PackedScene" uid="uid://d2yanptj8uep2" path="res://Game/Entities/Player/Player.tscn" id="1_av1km"]
+[ext_resource type="PackedScene" uid="uid://c4200bkegwojv" path="res://Game/Entities/Vacuum/Vacuum.tscn" id="1_rv6nf"]
+[ext_resource type="Script" path="res://Game/LevelDesign/Camera.gd" id="3_ldtb8"]
+[ext_resource type="PackedScene" uid="uid://0n38ndq002t2" path="res://Game/Entities/Police/Pistol/Police.tscn" id="4_3rcrd"]
+[ext_resource type="Script" path="res://Game/Levels/City/Inventory.gd" id="4_axsjr"]
+[ext_resource type="Texture2D" uid="uid://dblnrjou8mkie" path="res://Game/Objects/Background/Buildings/AlienCatStuffExtraBldg1.png" id="4_vlgem"]
+[ext_resource type="Texture2D" uid="uid://c5rltm6c3sqoa" path="res://Game/Objects/Background/AlienCatStuffSidewalk1.png" id="4_xk5yq"]
+[ext_resource type="PackedScene" uid="uid://ddjkeyr8tiaau" path="res://Game/Entities/Police/Riot/Riot.tscn" id="5_2pav3"]
+[ext_resource type="Texture2D" uid="uid://biqalcm2kxv30" path="res://Game/Objects/Background/Buildings/AlienCatStuffExtraBldg2.png" id="5_f04wn"]
+[ext_resource type="Texture2D" uid="uid://df74ow1wfycst" path="res://Game/Objects/Background/Buildings/AlienCatStuffExtraBldg3.png" id="6_htmef"]
+[ext_resource type="Script" path="res://Game/Objects/Background/Repeat.gd" id="7_1tnuf"]
+[ext_resource type="Texture2D" uid="uid://b8i2yv6xtnp5n" path="res://Game/Objects/Background/Buildings/AlienCatStuffExtraBldg4.png" id="7_umelb"]
+[ext_resource type="Texture2D" uid="uid://boi6jog4teir7" path="res://Game/Objects/Background/AlienCatStuffSidewalk2.png" id="8_0kxfn"]
+[ext_resource type="PackedScene" uid="uid://dv0t5u26rpnae" path="res://Game/Objects/Items/Banana.tscn" id="9_nmqsw"]
+[ext_resource type="Script" path="res://Game/LevelDesign/Encounter/Encounter.gd" id="11_17o1p"]
+[ext_resource type="Script" path="res://Game/LevelDesign/Encounter/Wave.gd" id="14_54va6"]
+[ext_resource type="PackedScene" uid="uid://chj8p6dkk3qdc" path="res://Game/Objects/Obstacles/CafeSign.tscn" id="15_u7s6v"]
+[ext_resource type="PackedScene" uid="uid://ddx7njo67slew" path="res://Game/LevelDesign/Spawner/Spawner.tscn" id="16_3ytkw"]
+[ext_resource type="PackedScene" uid="uid://est117fali4" path="res://Game/Objects/Pickups/Battery/Battery.tscn" id="16_tfcae"]
+[ext_resource type="PackedScene" uid="uid://bnyabgi7ey34k" path="res://Game/Objects/Pickups/Tape/Tape.tscn" id="17_2j1nx"]
+[ext_resource type="PackedScene" uid="uid://45wlb1unl6oo" path="res://Game/Objects/Items/Bottle.tscn" id="17_4u12d"]
+[ext_resource type="Script" path="res://Game/LevelDesign/Spawner/SpawnTable.gd" id="17_lb8e3"]
+[ext_resource type="PackedScene" uid="uid://bpc40l04nsls2" path="res://Game/Objects/Items/BottleSideways.tscn" id="18_o8683"]
+[ext_resource type="PackedScene" uid="uid://4jbxg124rhl5" path="res://Game/Objects/Items/Can2.tscn" id="19_8007p"]
+[ext_resource type="PackedScene" uid="uid://bwpnw2uokxe71" path="res://Game/Objects/Items/Can3.tscn" id="20_0vl07"]
+[ext_resource type="PackedScene" uid="uid://dpv1pgyej4prr" path="res://Game/Objects/Items/Can4.tscn" id="21_apcvc"]
+[ext_resource type="PackedScene" uid="uid://cwn76rjtxarot" path="res://Game/Objects/Items/Can.tscn" id="22_ou2xs"]
+[ext_resource type="PackedScene" uid="uid://p55jpqwuk8im" path="res://Game/Objects/Items/Chips2.tscn" id="23_dyo2x"]
+[ext_resource type="PackedScene" uid="uid://dd76xdyro255v" path="res://Game/Objects/Items/Chips3.tscn" id="24_wuybx"]
+[ext_resource type="PackedScene" uid="uid://dh01h5w0gql6g" path="res://Game/Objects/Items/Chips4.tscn" id="25_1c8ky"]
+[ext_resource type="PackedScene" uid="uid://bngw7kih7w3it" path="res://Game/Objects/Items/Chips.tscn" id="26_6k30c"]
+[ext_resource type="PackedScene" uid="uid://bks4gphfubcgv" path="res://Game/Objects/Items/Dust.tscn" id="27_a31wh"]
+[ext_resource type="PackedScene" uid="uid://be2yvd1rclgd5" path="res://Game/Objects/Items/Newspaper2.tscn" id="28_rdp23"]
+[ext_resource type="PackedScene" uid="uid://ytits7hep4ug" path="res://Game/Objects/Items/Newspaper.tscn" id="29_d2jg4"]
+[ext_resource type="PackedScene" uid="uid://ckq8xcemhxcqo" path="res://Game/Objects/Items/Takeaway.tscn" id="30_a3gsr"]
+[ext_resource type="PackedScene" uid="uid://bvhccwrtl586d" path="res://Game/Objects/Items/TakeawaySideways.tscn" id="31_a78l3"]
+[ext_resource type="PackedScene" uid="uid://dyh8m126seo3v" path="res://Game/Objects/Obstacles/Barricade.tscn" id="33_6eg5y"]
+[ext_resource type="PackedScene" uid="uid://db5qoskfq1mo7" path="res://Game/Entities/Human/Human.tscn" id="34_8a4ta"]
+[ext_resource type="Script" path="res://Game/LevelDesign/DebugSpawn.gd" id="38_7n8wa"]
+
+[sub_resource type="Resource" id="Resource_5qnkj"]
+script = ExtResource("17_lb8e3")
+items = Array[PackedScene]([ExtResource("9_nmqsw"), ExtResource("17_4u12d"), ExtResource("18_o8683"), ExtResource("19_8007p"), ExtResource("20_0vl07"), ExtResource("21_apcvc"), ExtResource("22_ou2xs"), ExtResource("23_dyo2x"), ExtResource("24_wuybx"), ExtResource("25_1c8ky"), ExtResource("26_6k30c"), ExtResource("27_a31wh"), ExtResource("28_rdp23"), ExtResource("29_d2jg4"), ExtResource("30_a3gsr"), ExtResource("31_a78l3"), ExtResource("34_8a4ta")])
+table = {
+"res://Game/Entities/Human/Human.tscn": 30.0,
+"res://Game/Objects/Items/Banana.tscn": 1.0,
+"res://Game/Objects/Items/Bottle.tscn": 1.0,
+"res://Game/Objects/Items/BottleSideways.tscn": 1.0,
+"res://Game/Objects/Items/Can.tscn": 1.0,
+"res://Game/Objects/Items/Can2.tscn": 1.0,
+"res://Game/Objects/Items/Can3.tscn": 1.0,
+"res://Game/Objects/Items/Can4.tscn": 1.0,
+"res://Game/Objects/Items/Chips.tscn": 1.0,
+"res://Game/Objects/Items/Chips2.tscn": 1.0,
+"res://Game/Objects/Items/Chips3.tscn": 1.0,
+"res://Game/Objects/Items/Chips4.tscn": 1.0,
+"res://Game/Objects/Items/Dust.tscn": 30.0,
+"res://Game/Objects/Items/Newspaper.tscn": 1.0,
+"res://Game/Objects/Items/Newspaper2.tscn": 1.0,
+"res://Game/Objects/Items/Takeaway.tscn": 1.0,
+"res://Game/Objects/Items/TakeawaySideways.tscn": 1.0
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e3y3"]
+size = Vector2(640, 882)
+
+[node name="City" type="Node2D"]
+metadata/_edit_vertical_guides_ = [200000.0, 50000.0, 100000.0]
+metadata/_edit_horizontal_guides_ = [1362.0, 1347.0]
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_top = 280.0
+offset_right = 205191.0
+offset_bottom = 1022.0
+color = Color(0.854902, 0.854902, 0.854902, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+position = Vector2(0, 280)
+collision_layer = 2
+collision_mask = 61
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/StaticBody2D"]
+position = Vector2(0, -78)
+build_mode = 1
+polygon = PackedVector2Array(0, 449, 0, 1100, 54170, 1100, 54170, 449)
+
+[node name="Repeat" type="Node2D" parent="Node2D"]
+position = Vector2(0, 984)
+script = ExtResource("7_1tnuf")
+length = 92
+spacing = -200.0
+images = Array[Texture2D]([ExtResource("4_xk5yq"), ExtResource("8_0kxfn")])
+weights = {
+ExtResource("4_xk5yq"): 10.0,
+ExtResource("8_0kxfn"): 1.0
+}
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="@Sprite2D@356710" type="Sprite2D" parent="Node2D/Repeat"]
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356711" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356712" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(1200, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356713" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(1800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356714" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(2400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356715" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(3000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356716" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(3600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356717" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(4200, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356718" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(4800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356719" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(5400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356720" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(6000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356721" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(6600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356722" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(7200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356723" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(7800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356724" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(8400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356725" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(9000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356726" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(9600, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356727" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(10200, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356728" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(10800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356729" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(11400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356730" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(12000, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356731" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(12600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356732" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(13200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356733" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(13800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356734" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(14400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356735" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(15000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356736" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(15600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356737" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(16200, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356738" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(16800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356739" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(17400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356740" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(18000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356741" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(18600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356742" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(19200, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356743" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(19800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356744" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(20400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356745" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(21000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356746" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(21600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356747" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(22200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356748" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(22800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356749" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(23400, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356750" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(24000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356751" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(24600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356752" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(25200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356753" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(25800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356754" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(26400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356755" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(27000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356756" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(27600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356757" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(28200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356758" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(28800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356759" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(29400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356760" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(30000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356761" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(30600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356762" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(31200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356763" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(31800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356764" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(32400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356765" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(33000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356766" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(33600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356767" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(34200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356768" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(34800, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356769" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(35400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356770" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(36000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356771" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(36600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356772" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(37200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356773" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(37800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356774" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(38400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356775" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(39000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356776" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(39600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356777" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(40200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356778" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(40800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356779" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(41400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356780" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(42000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356781" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(42600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356782" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(43200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356783" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(43800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356784" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(44400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356785" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(45000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356786" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(45600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356787" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(46200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356788" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(46800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356789" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(47400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356790" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(48000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356791" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(48600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356792" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(49200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356793" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(49800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356794" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(50400, 0)
+texture = ExtResource("8_0kxfn")
+
+[node name="@Sprite2D@356795" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(51000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356796" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(51600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356797" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(52200, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356798" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(52800, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356799" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(53400, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356800" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(54000, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="@Sprite2D@356801" type="Sprite2D" parent="Node2D/Repeat"]
+position = Vector2(54600, 0)
+texture = ExtResource("4_xk5yq")
+
+[node name="Repeat2" type="Node2D" parent="Node2D"]
+z_index = 2
+position = Vector2(633, 295)
+script = ExtResource("7_1tnuf")
+length = 33
+spacing = -100.0
+images = Array[Texture2D]([ExtResource("4_vlgem"), ExtResource("5_f04wn"), ExtResource("6_htmef"), ExtResource("7_umelb")])
+weights = {
+ExtResource("4_vlgem"): 1.0,
+ExtResource("5_f04wn"): 1.0,
+ExtResource("6_htmef"): 1.0,
+ExtResource("7_umelb"): 0.05
+}
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="@Sprite2D@357503" type="Sprite2D" parent="Node2D/Repeat2"]
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357504" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(1700, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357505" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(3400, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357506" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(5100, 0)
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357507" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(6800, 0)
+texture = ExtResource("4_vlgem")
+
+[node name="@Sprite2D@357508" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(8500, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357509" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(10200, 0)
+texture = ExtResource("4_vlgem")
+
+[node name="@Sprite2D@357510" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(11900, 0)
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357511" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(13600, 0)
+texture = ExtResource("4_vlgem")
+
+[node name="@Sprite2D@357512" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(15300, 0)
+texture = ExtResource("7_umelb")
+
+[node name="@Sprite2D@357513" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(17000, 0)
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357514" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(18700, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357515" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(20400, 0)
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357516" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(22100, 0)
+texture = ExtResource("4_vlgem")
+
+[node name="@Sprite2D@357517" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(23800, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357518" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(25500, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357519" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(27200, 0)
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357520" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(28900, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357521" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(30600, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357522" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(32300, 0)
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357523" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(34000, 0)
+texture = ExtResource("4_vlgem")
+
+[node name="@Sprite2D@357524" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(35700, 0)
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357525" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(37400, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357526" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(39100, 0)
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357527" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(40800, 0)
+texture = ExtResource("4_vlgem")
+
+[node name="@Sprite2D@357528" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(42500, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357529" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(44200, 0)
+texture = ExtResource("4_vlgem")
+
+[node name="@Sprite2D@357530" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(45900, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357531" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(47600, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357532" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(49300, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357533" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(51000, 0)
+texture = ExtResource("6_htmef")
+
+[node name="@Sprite2D@357534" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(52700, 0)
+texture = ExtResource("5_f04wn")
+
+[node name="@Sprite2D@357535" type="Sprite2D" parent="Node2D/Repeat2"]
+position = Vector2(54400, 0)
+texture = ExtResource("6_htmef")
+
+[node name="Label" type="RichTextLabel" parent="Node2D"]
+z_index = 2
+offset_left = 50794.0
+offset_top = 116.0
+offset_right = 52016.0
+offset_bottom = 468.0
+theme_override_colors/default_color = Color(0.0602476, 0.547521, 0, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "Congrats on beating the game!
+I havent made a proper ending so you will be sent to the game over screen when you reach the end of the street"
+fit_content = true
+
+[node name="Entities" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Vacuum" parent="Entities" instance=ExtResource("1_rv6nf")]
+position = Vector2(808, 998)
+
+[node name="Player" parent="Entities" node_paths=PackedStringArray("vacuum") instance=ExtResource("1_av1km")]
+unique_name_in_owner = true
+position = Vector2(1204, 994)
+vacuum = NodePath("../Vacuum")
+
+[node name="Camera" type="Camera2D" parent="Entities/Player"]
+position = Vector2(-18, -396)
+zoom = Vector2(0.802, 0.802)
+limit_left = 0
+limit_top = 0
+limit_right = 54170
+limit_bottom = 1347
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("3_ldtb8")
+
+[node name="Camera2" type="Camera2D" parent="Entities/Player"]
+position = Vector2(51981, -396)
+zoom = Vector2(0.802, 0.802)
+limit_left = 0
+limit_top = 0
+limit_right = 54170
+limit_bottom = 1347
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("3_ldtb8")
+
+[node name="Encounter1" type="Node2D" parent="Entities"]
+position = Vector2(13718, 927)
+script = ExtResource("11_17o1p")
+
+[node name="1-Police" parent="Entities/Encounter1" instance=ExtResource("4_3rcrd")]
+position = Vector2(20, 3)
+
+[node name="Encounter2" type="Node2D" parent="Entities"]
+position = Vector2(15490, 862)
+script = ExtResource("11_17o1p")
+difficulty = 1
+
+[node name="2-Police1" parent="Entities/Encounter2" instance=ExtResource("4_3rcrd")]
+position = Vector2(-8, -162)
+
+[node name="2-Police2" parent="Entities/Encounter2" instance=ExtResource("4_3rcrd")]
+position = Vector2(13, 281)
+
+[node name="Encounter3" type="Node2D" parent="Entities"]
+position = Vector2(17098, 986)
+script = ExtResource("11_17o1p")
+
+[node name="3-Riot" parent="Entities/Encounter3" instance=ExtResource("5_2pav3")]
+position = Vector2(397, 156)
+
+[node name="Encounter4" type="Node2D" parent="Entities"]
+position = Vector2(18714, 878)
+script = ExtResource("11_17o1p")
+difficulty = 1
+
+[node name="4-Riot1" parent="Entities/Encounter4" instance=ExtResource("5_2pav3")]
+position = Vector2(371, -191)
+
+[node name="4-Riot2" parent="Entities/Encounter4" instance=ExtResource("5_2pav3")]
+position = Vector2(392, 264)
+
+[node name="Encounter5" type="Node2D" parent="Entities"]
+position = Vector2(20152, 759)
+script = ExtResource("11_17o1p")
+difficulty = 1
+
+[node name="5-Riot" parent="Entities/Encounter5" instance=ExtResource("5_2pav3")]
+position = Vector2(1001, 51)
+
+[node name="5-Police" parent="Entities/Encounter5" instance=ExtResource("4_3rcrd")]
+position = Vector2(687, 184)
+
+[node name="Encounter6" type="Node2D" parent="Entities"]
+position = Vector2(22165, 877)
+script = ExtResource("11_17o1p")
+difficulty = 2
+
+[node name="6-Riot1" parent="Entities/Encounter6" instance=ExtResource("5_2pav3")]
+position = Vector2(722, 243)
+
+[node name="6-Riot4" parent="Entities/Encounter6" instance=ExtResource("5_2pav3")]
+position = Vector2(722, -127)
+
+[node name="6-Riot2" parent="Entities/Encounter6" instance=ExtResource("5_2pav3")]
+position = Vector2(-708, -45)
+active = false
+
+[node name="6-Riot3" parent="Entities/Encounter6" instance=ExtResource("5_2pav3")]
+position = Vector2(-720, 223)
+active = false
+
+[node name="Encounter7" type="Node2D" parent="Entities"]
+position = Vector2(25214, 917)
+script = ExtResource("11_17o1p")
+difficulty = 1
+
+[node name="7-Riot" parent="Entities/Encounter7" instance=ExtResource("5_2pav3")]
+position = Vector2(502, 183)
+
+[node name="7-Riot2" parent="Entities/Encounter7" instance=ExtResource("5_2pav3")]
+position = Vector2(502, -164)
+
+[node name="7-Riot3" parent="Entities/Encounter7" instance=ExtResource("5_2pav3")]
+position = Vector2(502, 14)
+
+[node name="Encounter8" type="Node2D" parent="Entities"]
+position = Vector2(27573, 852)
+script = ExtResource("11_17o1p")
+difficulty = 2
+
+[node name="8-Police" parent="Entities/Encounter8" instance=ExtResource("4_3rcrd")]
+position = Vector2(-750, -17)
+
+[node name="8-Police2" parent="Entities/Encounter8" instance=ExtResource("4_3rcrd")]
+position = Vector2(-400, 169)
+
+[node name="8-Police3" parent="Entities/Encounter8" instance=ExtResource("4_3rcrd")]
+position = Vector2(-121, -120)
+
+[node name="8-Police4" parent="Entities/Encounter8" instance=ExtResource("4_3rcrd")]
+position = Vector2(162, 270)
+
+[node name="8-Police5" parent="Entities/Encounter8" instance=ExtResource("4_3rcrd")]
+position = Vector2(585, 25)
+
+[node name="8-Police6" parent="Entities/Encounter8" instance=ExtResource("4_3rcrd")]
+position = Vector2(905, 305)
+
+[node name="Encounter9" type="Node2D" parent="Entities"]
+position = Vector2(29776, 896)
+script = ExtResource("11_17o1p")
+difficulty = 2
+
+[node name="9-Police" parent="Entities/Encounter9" instance=ExtResource("4_3rcrd")]
+position = Vector2(845, -179)
+
+[node name="9-Police2" parent="Entities/Encounter9" instance=ExtResource("4_3rcrd")]
+position = Vector2(760, -47)
+
+[node name="9-Police3" parent="Entities/Encounter9" instance=ExtResource("4_3rcrd")]
+position = Vector2(653, 73)
+
+[node name="9-Police4" parent="Entities/Encounter9" instance=ExtResource("4_3rcrd")]
+position = Vector2(551, 217)
+
+[node name="9-Police5" parent="Entities/Encounter9" instance=ExtResource("4_3rcrd")]
+position = Vector2(-1173, 217)
+active = false
+
+[node name="9-Police6" parent="Entities/Encounter9" instance=ExtResource("4_3rcrd")]
+position = Vector2(-1110, 73)
+active = false
+
+[node name="9-Police7" parent="Entities/Encounter9" instance=ExtResource("4_3rcrd")]
+position = Vector2(-1060, -48)
+active = false
+
+[node name="9-Police8" parent="Entities/Encounter9" instance=ExtResource("4_3rcrd")]
+position = Vector2(-997, -182)
+active = false
+
+[node name="Encounter10" type="Node2D" parent="Entities"]
+position = Vector2(33205, 918)
+script = ExtResource("11_17o1p")
+difficulty = 2
+
+[node name="10-Police" parent="Entities/Encounter10" instance=ExtResource("4_3rcrd")]
+position = Vector2(422, -211)
+
+[node name="10-Riot" parent="Entities/Encounter10" instance=ExtResource("5_2pav3")]
+position = Vector2(687, 156)
+
+[node name="10-Police2" parent="Entities/Encounter10" instance=ExtResource("4_3rcrd")]
+position = Vector2(-889, 200)
+active = false
+
+[node name="10-Riot2" parent="Entities/Encounter10" instance=ExtResource("5_2pav3")]
+position = Vector2(-1087, -101)
+active = false
+
+[node name="Encounter11" type="Node2D" parent="Entities"]
+position = Vector2(35241, 873)
+script = ExtResource("11_17o1p")
+difficulty = 1
+
+[node name="11-Police" parent="Entities/Encounter11" instance=ExtResource("4_3rcrd")]
+position = Vector2(910, 63)
+
+[node name="11-Riot" parent="Entities/Encounter11" instance=ExtResource("5_2pav3")]
+position = Vector2(-828, -173)
+active = false
+
+[node name="11-Riot2" parent="Entities/Encounter11" instance=ExtResource("5_2pav3")]
+position = Vector2(-830, 308)
+active = false
+
+[node name="Encounter12" type="Node2D" parent="Entities"]
+position = Vector2(37907, 965)
+script = ExtResource("11_17o1p")
+
+[node name="12-Police" parent="Entities/Encounter12" instance=ExtResource("4_3rcrd")]
+position = Vector2(135, -19)
+
+[node name="Encounter13" type="Node2D" parent="Entities"]
+position = Vector2(40567, 893)
+script = ExtResource("11_17o1p")
+difficulty = 2
+
+[node name="13-Police" parent="Entities/Encounter13" instance=ExtResource("4_3rcrd")]
+position = Vector2(-82, 268)
+
+[node name="13-Police2" parent="Entities/Encounter13" instance=ExtResource("4_3rcrd")]
+position = Vector2(43, -102)
+
+[node name="13-Riot" parent="Entities/Encounter13" instance=ExtResource("5_2pav3")]
+position = Vector2(338, 288)
+
+[node name="13-Riot2" parent="Entities/Encounter13" instance=ExtResource("5_2pav3")]
+position = Vector2(447, -112)
+
+[node name="Encounter14" type="Node2D" parent="Entities"]
+position = Vector2(42769, 1190)
+script = ExtResource("11_17o1p")
+difficulty = 1
+
+[node name="14-Riot" parent="Entities/Encounter14" instance=ExtResource("5_2pav3")]
+position = Vector2(1116, 32)
+
+[node name="14-Riot2" parent="Entities/Encounter14" instance=ExtResource("5_2pav3")]
+position = Vector2(-1285, 32)
+active = false
+
+[node name="Encounter15" type="Node2D" parent="Entities"]
+position = Vector2(45829, 936)
+script = ExtResource("11_17o1p")
+difficulty = 2
+
+[node name="15-Riot" parent="Entities/Encounter15" instance=ExtResource("5_2pav3")]
+position = Vector2(475, -214)
+
+[node name="15-Riot2" parent="Entities/Encounter15" instance=ExtResource("5_2pav3")]
+position = Vector2(304, 321)
+
+[node name="15-Riot3" parent="Entities/Encounter15" instance=ExtResource("5_2pav3")]
+position = Vector2(153, -2)
+
+[node name="15-Police" parent="Entities/Encounter15" instance=ExtResource("4_3rcrd")]
+position = Vector2(-238, 42)
+
+[node name="Encounter16" type="Node2D" parent="Entities"]
+position = Vector2(48704, 969)
+script = ExtResource("11_17o1p")
+difficulty = 2
+
+[node name="16-Police" parent="Entities/Encounter16" instance=ExtResource("4_3rcrd")]
+position = Vector2(947, 9)
+
+[node name="16-Police4" parent="Entities/Encounter16" instance=ExtResource("4_3rcrd")]
+position = Vector2(-975, 204)
+active = false
+
+[node name="16-Riot" parent="Entities/Encounter16" instance=ExtResource("5_2pav3")]
+position = Vector2(-633, -134)
+active = false
+
+[node name="Wave" type="Node2D" parent="Entities/Encounter16"]
+position = Vector2(-749, -66)
+script = ExtResource("14_54va6")
+delay = 3.0
+
+[node name="16-Police2" parent="Entities/Encounter16/Wave" instance=ExtResource("4_3rcrd")]
+position = Vector2(657, 75)
+active = false
+
+[node name="16-Police3" parent="Entities/Encounter16/Wave" instance=ExtResource("4_3rcrd")]
+position = Vector2(201, -130)
+active = false
+
+[node name="16-Riot2" parent="Entities/Encounter16/Wave" instance=ExtResource("5_2pav3")]
+position = Vector2(-30, 167)
+active = false
+
+[node name="Barricade" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(3204, 1267)
+
+[node name="Barricade2" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(7939, 1267)
+
+[node name="Barricade3" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(13420, 1037)
+
+[node name="Barricade4" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(15178, 1070)
+
+[node name="Barricade5" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(14964, 1252)
+
+[node name="Barricade6" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(18004, 848)
+
+[node name="Barricade7" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(17771, 1073)
+
+[node name="Barricade8" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(20319, 1215)
+
+[node name="Barricade9" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(26355, 1286)
+
+[node name="Barricade10" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(35807, 1293)
+
+[node name="Barricade13" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(39746, 1021)
+
+[node name="Barricade14" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(40159, 1021)
+
+[node name="Barricade16" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(42761, 1193)
+
+[node name="Barricade17" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(45236, 818)
+
+[node name="Barricade20" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(44934, 1271)
+
+[node name="Barricade21" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(53924, 1122)
+
+[node name="Barricade18" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(42659, 830)
+
+[node name="Barricade19" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(42718, 1015)
+
+[node name="Barricade12" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(34786, 1028)
+
+[node name="Barricade11" parent="Entities" instance=ExtResource("33_6eg5y")]
+position = Vector2(35844, 817)
+
+[node name="CafeSign" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(11345, 730)
+
+[node name="CafeSign2" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(16396, 786)
+
+[node name="CafeSign3" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(5214, 840)
+
+[node name="CafeSign5" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(23231, 785)
+
+[node name="CafeSign4" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(24855, 941)
+
+[node name="CafeSign6" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(27161, 752)
+
+[node name="CafeSign7" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(49175, 744)
+
+[node name="CafeSign10" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(53963, 695)
+
+[node name="CafeSign9" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(43166, 1174)
+
+[node name="CafeSign8" parent="Entities" instance=ExtResource("15_u7s6v")]
+position = Vector2(31309, 782)
+
+[node name="Battery" parent="Entities" instance=ExtResource("16_tfcae")]
+position = Vector2(12321, 1177)
+active = true
+
+[node name="Battery2" parent="Entities" instance=ExtResource("16_tfcae")]
+position = Vector2(16203, 710)
+active = true
+
+[node name="Battery3" parent="Entities" instance=ExtResource("16_tfcae")]
+position = Vector2(25016, 754)
+active = true
+
+[node name="Battery4" parent="Entities" instance=ExtResource("16_tfcae")]
+position = Vector2(31428, 697)
+active = true
+
+[node name="Battery5" parent="Entities" instance=ExtResource("16_tfcae")]
+position = Vector2(35575, 1209)
+active = true
+
+[node name="Battery6" parent="Entities" instance=ExtResource("16_tfcae")]
+position = Vector2(43105, 1050)
+active = true
+
+[node name="Battery7" parent="Entities" instance=ExtResource("16_tfcae")]
+position = Vector2(49328, 696)
+active = true
+
+[node name="Tape2" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(30984, 936)
+difficulty = 2
+
+[node name="Tape3" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(17384, 738)
+
+[node name="Tape4" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(20644, 1152)
+
+[node name="Tape5" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(23316, 705)
+difficulty = 1
+
+[node name="Tape6" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(25001, 1102)
+
+[node name="Tape7" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(28736, 931)
+
+[node name="Tape8" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(31181, 993)
+
+[node name="Tape9" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(35595, 752)
+
+[node name="Tape10" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(38310, 956)
+
+[node name="Tape11" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(40124, 1118)
+difficulty = 1
+
+[node name="Tape12" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(43148, 734)
+
+[node name="Tape13" parent="Entities" instance=ExtResource("17_2j1nx")]
+position = Vector2(46640, 923)
+difficulty = 1
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("spawn_parent") instance=ExtResource("16_3ytkw")]
+z_index = 10
+position = Vector2(70, 674)
+min_dist = 50.0
+max_dist = 500.0
+table = SubResource("Resource_5qnkj")
+spawn_parent = NodePath("../Entities")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="EndPoint" parent="Spawner" index="0"]
+position = Vector2(51848, 567)
+
+[node name="Line" parent="Spawner/EndPoint" index="0"]
+points = PackedVector2Array(0, 0, -51848, 0, -51848, -567, 0, -567, 0, 0)
+
+[node name="Menu" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Menu" type="MarginContainer" parent="Menu"]
+unique_name_in_owner = true
+offset_right = 81.0
+offset_bottom = 54.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 45
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu/Menu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/Menu/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Inventory"
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Menu/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="Inventory" type="VBoxContainer" parent="Menu/Menu/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+script = ExtResource("4_axsjr")
+
+[node name="Label" type="Label" parent="Menu/Menu/VBoxContainer2/MarginContainer/Inventory"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Evil" type="CenterContainer" parent="Menu"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Menu/Evil"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.791912, 0, 0, 1)
+theme_override_font_sizes/font_size = 512
+text = "E V I L"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(53632, 933)
+collision_layer = 0
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3e3y3")
+
+[node name="DebugSpawn" type="Marker2D" parent="." node_paths=PackedStringArray("cat", "vacuum")]
+position = Vector2(12038, 842)
+script = ExtResource("38_7n8wa")
+difficulty = 2
+cat = NodePath("../Entities/Player")
+vacuum = NodePath("../Entities/Vacuum")
+
+[connection signal="body_entered" from="Area2D" to="Entities/Player" method="die"]
+
+[editable path="Spawner"]

@@ -1,0 +1,221 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpwhjd2ngsvet"]
+
+[ext_resource type="Script" path="res://Game/Global/Menu/Menu.gd" id="1_mq3f0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmpau"]
+bg_color = Color(0.180392, 0.454902, 0.521569, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jduyj"]
+color = Color(1, 1, 1, 1)
+grow_begin = 16.0
+grow_end = 16.0
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7gke"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(0.701961, 0.933333, 0.988235, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jqxj"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Menu" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_mq3f0")
+
+[node name="Settings" type="PopupPanel" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+transparent_bg = true
+initial_position = 2
+size = Vector2i(632, 515)
+transparent = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_fmpau")
+
+[node name="CenterContainer" type="MarginContainer" parent="Settings"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 632.0
+offset_bottom = 515.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Accessibility"
+
+[node name="HSeparator" type="HSeparator" parent="Settings/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_jduyj")
+
+[node name="Control" type="Control" parent="Settings/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 11.73)
+layout_mode = 2
+
+[node name="BlindMode" type="Button" parent="Settings/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_color = Color(0.181473, 0.455373, 0.520366, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0jqxj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t7gke")
+text = "Blind Mode"
+
+[node name="Pause" type="PopupPanel" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+transparent_bg = true
+initial_position = 2
+size = Vector2i(632, 730)
+transparent = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_fmpau")
+
+[node name="CenterContainer" type="MarginContainer" parent="Pause"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 632.0
+offset_bottom = 730.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Label" type="Label" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_jduyj")
+
+[node name="Control" type="Control" parent="Pause/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 0.66)
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_color = Color(0.181473, 0.455373, 0.520366, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0jqxj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t7gke")
+text = "Resume"
+
+[node name="Restart" type="Button" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_color = Color(0.181473, 0.455373, 0.520366, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0jqxj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t7gke")
+text = "Restart"
+
+[node name="Settings" type="Button" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_color = Color(0.181473, 0.455373, 0.520366, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0jqxj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_t7gke")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t7gke")
+text = "Settings"
+
+[connection signal="pressed" from="Settings/CenterContainer/VBoxContainer/BlindMode" to="." method="_on_blind_mode_pressed"]
+[connection signal="popup_hide" from="Pause" to="." method="unpause"]
+[connection signal="pressed" from="Pause/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Pause/CenterContainer/VBoxContainer/Settings" to="Settings" method="popup_centered"]

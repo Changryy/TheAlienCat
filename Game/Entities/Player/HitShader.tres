@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://0ua2b5pcb16m"]
+
+[ext_resource type="Shader" path="res://Game/Entities/Player/Hit.gdshader" id="1_46ri6"]
+
+[resource]
+shader = ExtResource("1_46ri6")
+shader_parameter/white = 0.0

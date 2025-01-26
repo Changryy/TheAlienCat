@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://y3v3p522myjy"]
+
+[ext_resource type="PackedScene" uid="uid://vucgvegws4xn" path="res://Game/Objects/Items/Item.tscn" id="1_ckivw"]
+[ext_resource type="Texture2D" uid="uid://bgukey4fjalqe" path="res://Game/Objects/Items/Textures/AlienCatStuff2.png" id="2_go5oy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7fvl6"]
+radius = 25.0
+height = 78.0
+
+[sub_resource type="Gradient" id="Gradient_kwgk3"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wwu6e"]
+gradient = SubResource("Gradient_kwgk3")
+width = 79
+height = 39
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7tyf"]
+atlas = ExtResource("2_go5oy")
+region = Rect2(282, 46, 118, 122)
+
+[node name="Bell" groups=["holdable"] instance=ExtResource("1_ckivw")]
+hold_index = 1
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+unique_name_in_owner = true
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_7fvl6")
+
+[node name="Middle" parent="." index="1"]
+position = Vector2(0, -37)
+
+[node name="Shadow" type="Sprite2D" parent="Middle" index="0"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0, 37)
+texture = SubResource("GradientTexture2D_wwu6e")
+
+[node name="Sprite" type="Sprite2D" parent="Middle" index="1"]
+unique_name_in_owner = true
+position = Vector2(-4, -8)
+texture = SubResource("AtlasTexture_t7tyf")

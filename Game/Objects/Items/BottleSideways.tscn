@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpc40l04nsls2"]
+
+[ext_resource type="PackedScene" uid="uid://vucgvegws4xn" path="res://Game/Objects/Items/Item.tscn" id="1_6a68h"]
+[ext_resource type="Texture2D" uid="uid://dhorcxrl6jlgd" path="res://Game/Objects/Items/Textures/AlienCatStuffBottle.png" id="2_rbnka"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jn4bg"]
+radius = 9.1841
+height = 62.2367
+
+[sub_resource type="Gradient" id="Gradient_ch43h"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fjcpl"]
+gradient = SubResource("Gradient_ch43h")
+width = 59
+height = 19
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Bottle" instance=ExtResource("1_6a68h")]
+hold_index = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+unique_name_in_owner = true
+position = Vector2(-3, -5)
+rotation = -1.43311
+shape = SubResource("CapsuleShape2D_jn4bg")
+
+[node name="Middle" parent="." index="1"]
+position = Vector2(0, -14)
+
+[node name="Shadow" type="Sprite2D" parent="Middle" index="0"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(-4, 15)
+rotation = 0.287297
+texture = SubResource("GradientTexture2D_fjcpl")
+
+[node name="Sprite" type="Sprite2D" parent="Middle" index="1"]
+unique_name_in_owner = true
+position = Vector2(7, 2)
+rotation = 1.82328
+texture = ExtResource("2_rbnka")
+
+[node name="Suck" parent="." index="2"]
+entity = "Bottle"

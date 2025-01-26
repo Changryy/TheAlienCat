@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://qjjhfgfotqdh"]
+
+[ext_resource type="PackedScene" uid="uid://vucgvegws4xn" path="res://Game/Objects/Items/Item.tscn" id="1_b2b5h"]
+[ext_resource type="Texture2D" uid="uid://bgukey4fjalqe" path="res://Game/Objects/Items/Textures/AlienCatStuff2.png" id="2_p4bdi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7fvl6"]
+radius = 25.0
+height = 128.0
+
+[sub_resource type="Gradient" id="Gradient_ch43h"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_821gd"]
+gradient = SubResource("Gradient_ch43h")
+width = 119
+height = 54
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50e72"]
+atlas = ExtResource("2_p4bdi")
+region = Rect2(235, 166, 193, 121)
+
+[node name="Mouse" groups=["holdable"] instance=ExtResource("1_b2b5h")]
+hold_index = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+unique_name_in_owner = true
+position = Vector2(-2, -14)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_7fvl6")
+
+[node name="Middle" parent="." index="1"]
+position = Vector2(0, -34)
+
+[node name="Shadow" type="Sprite2D" parent="Middle" index="0"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(12, 28)
+texture = SubResource("GradientTexture2D_821gd")
+
+[node name="Sprite" type="Sprite2D" parent="Middle" index="1"]
+unique_name_in_owner = true
+position = Vector2(-15, 4)
+texture = SubResource("AtlasTexture_50e72")

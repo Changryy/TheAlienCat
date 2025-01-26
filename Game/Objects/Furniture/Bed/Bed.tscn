@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://brn8qg1k343e7"]
+
+[ext_resource type="PackedScene" uid="uid://2qyk3rifang3" path="res://Game/Objects/Furniture/Furniture.tscn" id="1_rtatp"]
+[ext_resource type="Texture2D" uid="uid://dierxkle00gkn" path="res://Game/Objects/Furniture/Bed/AlienCatStuffCatBed.png" id="2_dnmtq"]
+
+[sub_resource type="Gradient" id="Gradient_m6vec"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q0pmf"]
+gradient = SubResource("Gradient_m6vec")
+width = 389
+height = 119
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ti4r3"]
+radius = 66.0289
+height = 359.631
+
+[node name="Bed" node_paths=PackedStringArray("item_spots") instance=ExtResource("1_rtatp")]
+item_spots = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("Sprite2D3")]
+
+[node name="Shadow" type="Sprite2D" parent="." index="0"]
+z_index = -1
+position = Vector2(-2, -26)
+texture = SubResource("GradientTexture2D_q0pmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, -64)
+rotation = -1.53075
+shape = SubResource("CapsuleShape2D_ti4r3")
+
+[node name="AlienCatStuffCloset" type="Sprite2D" parent="." index="2"]
+position = Vector2(-2, -67)
+texture = ExtResource("2_dnmtq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+position = Vector2(-77, -90)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="4"]
+position = Vector2(82, -54)
+
+[node name="Sprite2D3" type="Sprite2D" parent="." index="5"]
+position = Vector2(-4, -51)

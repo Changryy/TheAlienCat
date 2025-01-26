@@ -1,0 +1,169 @@
+[gd_scene load_steps=19 format=3 uid="uid://db5qoskfq1mo7"]
+
+[ext_resource type="Script" path="res://Game/Entities/Human/Human.gd" id="1_qj8md"]
+[ext_resource type="Texture2D" uid="uid://bt1d7rtmk5gc5" path="res://Game/Entities/Human/AlienCatStuffHuman1.png" id="2_07mmd"]
+[ext_resource type="Texture2D" uid="uid://bnv5m41glga0h" path="res://Game/Entities/Human/AlienCatStuffHuman2.5.png" id="3_ewu2k"]
+[ext_resource type="Texture2D" uid="uid://q6lvgph3ekg8" path="res://Game/Entities/Human/AlienCatStuffHuman2.png" id="4_ln7ed"]
+[ext_resource type="Script" path="res://Game/Entities/Suck.gd" id="5_8j3dt"]
+[ext_resource type="Texture2D" uid="uid://crd6ylufb2jsp" path="res://Game/Entities/Human/AlienCatStuffHuman3.png" id="5_kye4q"]
+[ext_resource type="Script" path="res://Game/Entities/AI/Statemachine.gd" id="7_bf0vq"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/MoveTowardsAim.gd" id="8_77elj"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/ChangeSpeed.gd" id="9_1t2e2"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/RandomAim.gd" id="9_6rj0e"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/BounceAim.gd" id="11_ov22f"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/State.gd" id="11_yhav8"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/GoTo.gd" id="12_bv32j"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/RandomSprite.gd" id="13_knji4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1lwk"]
+radius = 29.0
+height = 182.0
+
+[sub_resource type="Gradient" id="Gradient_t65io"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y3x4h"]
+gradient = SubResource("Gradient_t65io")
+width = 444
+height = 119
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28fot"]
+radius = 97.0052
+
+[node name="Human" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 70
+script = ExtResource("1_qj8md")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -6)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_d1lwk")
+
+[node name="Middle" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -243)
+
+[node name="Visuals" type="Node2D" parent="Middle"]
+unique_name_in_owner = true
+position = Vector2(0, 243)
+
+[node name="Shadow" type="Sprite2D" parent="Middle/Visuals"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(-1, 1)
+texture = SubResource("GradientTexture2D_y3x4h")
+
+[node name="Bob" type="Node2D" parent="Middle/Visuals"]
+unique_name_in_owner = true
+
+[node name="Walk" type="Sprite2D" parent="Middle/Visuals/Bob"]
+unique_name_in_owner = true
+position = Vector2(3, -262)
+texture = ExtResource("2_07mmd")
+
+[node name="Run" type="Sprite2D" parent="Middle/Visuals/Bob"]
+unique_name_in_owner = true
+position = Vector2(-2, -275)
+texture = ExtResource("3_ewu2k")
+
+[node name="Run2" type="Sprite2D" parent="Middle/Visuals/Bob"]
+unique_name_in_owner = true
+position = Vector2(-2, -261)
+texture = ExtResource("4_ln7ed")
+
+[node name="Sucked" type="Sprite2D" parent="Middle/Visuals/Bob"]
+unique_name_in_owner = true
+position = Vector2(-1, -328)
+texture = ExtResource("5_kye4q")
+flip_h = true
+
+[node name="Suck" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_8j3dt")
+entity = "Human"
+is_alive = true
+spiral = false
+vacuum_index = 0
+
+[node name="SpawnCheck" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 6
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnCheck"]
+shape = SubResource("CircleShape2D_28fot")
+
+[node name="Statemachine" type="Node" parent="." node_paths=PackedStringArray("sucked_state", "evil_state", "sprites")]
+script = ExtResource("7_bf0vq")
+sucked_state = NodePath("Sucked")
+evil_state = NodePath("RunDir")
+sprites = [NodePath("../Middle/Visuals/Bob/Walk"), NodePath("../Middle/Visuals/Bob/Run"), NodePath("../Middle/Visuals/Bob/Run2"), NodePath("../Middle/Visuals/Bob/Sucked")]
+
+[node name="WalkDir" type="Node" parent="Statemachine"]
+script = ExtResource("9_6rj0e")
+lock_y = true
+sprite = 0
+duration_immidiate = true
+
+[node name="WalkSpeed" type="Node" parent="Statemachine"]
+script = ExtResource("9_1t2e2")
+min_bob = 2.0
+max_bob = 4.0
+duration_immidiate = true
+
+[node name="Walk" type="Node" parent="Statemachine"]
+script = ExtResource("8_77elj")
+acceleration_time = 0.1
+speed_use_global = true
+
+[node name="BounceAim" type="Node" parent="Statemachine"]
+script = ExtResource("11_ov22f")
+lock_y = true
+duration_immidiate = true
+
+[node name="GoToWalk" type="Node" parent="Statemachine" node_paths=PackedStringArray("state")]
+script = ExtResource("12_bv32j")
+state = NodePath("../Walk")
+
+[node name="RunDir" type="Node" parent="Statemachine"]
+script = ExtResource("9_6rj0e")
+duration_immidiate = true
+
+[node name="RandomSprite" type="Node" parent="Statemachine"]
+script = ExtResource("13_knji4")
+sprites = Array[int]([1, 2])
+duration_immidiate = true
+
+[node name="RunSpeed" type="Node" parent="Statemachine"]
+script = ExtResource("9_1t2e2")
+min_speed = 500.0
+max_speed = 1000.0
+min_bob = 4.0
+max_bob = 6.0
+bob_height = 50.0
+duration_immidiate = true
+
+[node name="Run" type="Node" parent="Statemachine"]
+script = ExtResource("8_77elj")
+acceleration_time = 0.1
+speed_use_global = true
+
+[node name="BounceAim2" type="Node" parent="Statemachine"]
+script = ExtResource("11_ov22f")
+duration_immidiate = true
+
+[node name="GoToRun" type="Node" parent="Statemachine" node_paths=PackedStringArray("state")]
+script = ExtResource("12_bv32j")
+state = NodePath("../Run")
+
+[node name="Sucked" type="Node" parent="Statemachine"]
+script = ExtResource("11_yhav8")
+sprite = 3
+face_player = true

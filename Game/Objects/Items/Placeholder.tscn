@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw5at0dinfl08"]
+
+[ext_resource type="PackedScene" uid="uid://vucgvegws4xn" path="res://Game/Objects/Items/Item.tscn" id="1_btu53"]
+[ext_resource type="Texture2D" uid="uid://itiypujnp37o" path="res://icon.png" id="2_i1elx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1i8fl"]
+size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_7dp4w"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pr2uh"]
+gradient = SubResource("Gradient_7dp4w")
+height = 39
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Placeholder" groups=["holdable", "vacuumtip"] instance=ExtResource("1_btu53")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+unique_name_in_owner = true
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_1i8fl")
+
+[node name="Middle" parent="." index="1"]
+position = Vector2(0, -30)
+
+[node name="Shadow" type="Sprite2D" parent="Middle" index="0"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0, 28)
+texture = SubResource("GradientTexture2D_pr2uh")
+
+[node name="Sprite" type="Sprite2D" parent="Middle" index="1"]
+unique_name_in_owner = true
+position = Vector2(0, -1)
+texture = ExtResource("2_i1elx")

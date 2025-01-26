@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://chj8p6dkk3qdc"]
+
+[ext_resource type="PackedScene" uid="uid://2qyk3rifang3" path="res://Game/Objects/Furniture/Furniture.tscn" id="1_2l1ls"]
+[ext_resource type="Texture2D" uid="uid://wljbf5smjmx7" path="res://Game/Objects/Obstacles/Textures/AlienCatStuffSign.png" id="2_ri2ca"]
+
+[sub_resource type="Gradient" id="Gradient_4nxdn"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wrvo3"]
+gradient = SubResource("Gradient_4nxdn")
+width = 209
+height = 179
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="CafeSign" instance=ExtResource("1_2l1ls")]
+texture_filter = 1
+
+[node name="Shadow" type="Sprite2D" parent="." index="0"]
+z_index = -1
+position = Vector2(-4, 2.38419e-07)
+skew = 1.35961
+texture = SubResource("GradientTexture2D_wrvo3")
+
+[node name="AlienCatStuffCloset" type="Sprite2D" parent="." index="1"]
+position = Vector2(-2, -131)
+texture = ExtResource("2_ri2ca")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+position = Vector2(-61.2, -14)
+polygon = PackedVector2Array(43.2, 37, 226.2, 11, 60.2, -16, -109.8, 28)

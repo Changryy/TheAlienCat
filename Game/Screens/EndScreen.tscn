@@ -1,0 +1,228 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxl37uqr6qlou"]
+
+[ext_resource type="Texture2D" uid="uid://dghyruxok65qw" path="res://Game/Screens/Newspaper2.png" id="1_xc6mf"]
+[ext_resource type="Script" path="res://Game/Screens/EndScreen.gd" id="1_yrg27"]
+[ext_resource type="Texture2D" uid="uid://bdbofgdy0pkjv" path="res://Game/Screens/Newspaper.png" id="2_wnnk6"]
+[ext_resource type="FontFile" uid="uid://b1dip022ocacv" path="res://Game/Fonts/Courier_Prime/CourierPrime-Bold.ttf" id="3_mg77f"]
+[ext_resource type="FontFile" uid="uid://r6f3dxb7u7ji" path="res://Game/Fonts/Courier_Prime/CourierPrime-BoldItalic.ttf" id="4_rut20"]
+[ext_resource type="FontFile" uid="uid://rndxpoq3pwdw" path="res://Game/Fonts/Courier_Prime/CourierPrime-Regular.ttf" id="5_peibt"]
+[ext_resource type="Texture2D" uid="uid://dqkxup5h2tbna" path="res://Game/Screens/Portrait.png" id="6_e6nxr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lov6a"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(0.701961, 0.933333, 0.988235, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fywh"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="EndScreen" type="Node2D"]
+position = Vector2(840, 573)
+script = ExtResource("1_yrg27")
+humans = Array[String](["Human"])
+polices = Array[String](["Human with badge", "Human with cool armour"])
+
+[node name="Paper" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.934474, 0.902453, 0.81139, 1)
+position = Vector2(47, -29)
+texture = ExtResource("1_xc6mf")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Paper"]
+offset_left = -466.0
+offset_top = -365.0
+offset_right = -184.0
+offset_bottom = -327.0
+rotation = 0.00372914
+theme_override_colors/default_color = Color(0.14699, 0.14699, 0.14699, 1)
+theme_override_fonts/normal_font = ExtResource("3_mg77f")
+text = "Very cool text that I wrote to have in the background"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Paper"]
+offset_left = -517.0
+offset_top = -12.0
+offset_right = -406.0
+offset_bottom = 251.0
+rotation = 0.113207
+theme_override_colors/default_color = Color(0.14699, 0.14699, 0.14699, 1)
+theme_override_fonts/normal_font = ExtResource("3_mg77f")
+text = "A
+J
+he
+tu
+smi
+ran
+
+just
+write
+whatever comes to mind h
+hello!
+More st"
+fit_content = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Paper"]
+offset_left = 455.0
+offset_top = -345.0
+offset_right = 564.0
+offset_bottom = -79.0
+rotation = 0.100603
+theme_override_colors/default_color = Color(0.14699, 0.14699, 0.14699, 1)
+theme_override_fonts/normal_font = ExtResource("3_mg77f")
+text = "Just have to write something here to complete the page so     it looks good and  might be    done now    now s  because"
+fit_content = true
+
+[node name="Newspaper" type="Sprite2D" parent="Paper"]
+texture = ExtResource("2_wnnk6")
+
+[node name="Victims" type="RichTextLabel" parent="Paper"]
+unique_name_in_owner = true
+offset_left = -464.0
+offset_top = -188.698
+offset_right = -119.0
+offset_bottom = 685.302
+rotation = -0.107593
+theme_override_colors/default_color = Color(0.14699, 0.14699, 0.14699, 1)
+theme_override_fonts/normal_font = ExtResource("3_mg77f")
+text = "An unprecedented situation has unfolded in the city, where what appears to be a rogue feline has taken to the streets with a vacuum device, wreaking havoc and instilling fear among residents. Witnesses describe the scene as surreal: a large domestic cat vacuuming up everything—and everyone—in sight. This unprecedented incident has resulted in at least {0} confirmed disappearances, with frantic families searching for their missing loved ones.
+
+The chaos began around noon when residents in the downtown area reported seeing a cat cleaning the streets with a vacuum. Eyewitnesses claim it was “sucking up everything in its path”, including unfortunate pedestrians. “It was like something out of a fever dream,” said one shaken bystander. “I blinked, and Bob from accounting just… vanished!”"
+fit_content = true
+
+[node name="Police" type="RichTextLabel" parent="Paper"]
+unique_name_in_owner = true
+offset_left = -90.0
+offset_top = 75.0
+offset_right = 529.0
+offset_bottom = 327.0
+rotation = -0.107593
+theme_override_colors/default_color = Color(0.14699, 0.14699, 0.14699, 1)
+theme_override_fonts/normal_font = ExtResource("3_mg77f")
+text = "Local authorities were quickly called into action when the calls poured in from all over the city. {0} police officers are still missing in action and several search parties have been organised to look for those unaccounted for. City officials have issued relief aid to all families affected by the tragedy.
+
+In light of the recent events, authorities are calling for a citywide inspection of pets and cleaning appliances. As multiple search efforts are underway, local authorities urge the public to remain vigilant. Citizens are advised to stay indoors for the time being."
+fit_content = true
+
+[node name="Clean" type="RichTextLabel" parent="Paper"]
+unique_name_in_owner = true
+offset_left = 191.0
+offset_top = -196.55
+offset_right = 502.0
+offset_bottom = 12.45
+rotation = -0.104672
+theme_override_colors/default_color = Color(0.14699, 0.14699, 0.14699, 1)
+theme_override_fonts/normal_font = ExtResource("3_mg77f")
+text = "Experts are baffled as the city’s littering problem is fixed overnight. Reports indicate that the streets are {0}% cleaner today than they were yesterday even though no measures have been taken to solve the problem. Environmental scientists still don’t have any explanations for how this could have happened."
+fit_content = true
+
+[node name="Label" type="Label" parent="Paper"]
+offset_left = -299.0
+offset_top = -327.0
+offset_right = 238.0
+offset_bottom = -255.0
+rotation = -0.103166
+theme_override_colors/font_color = Color(0.228454, 0.228454, 0.228454, 1)
+theme_override_fonts/font = ExtResource("4_rut20")
+theme_override_font_sizes/font_size = 64
+text = "THE DAILY POST"
+
+[node name="Label2" type="Label" parent="Paper"]
+offset_left = -471.0
+offset_top = -238.0
+offset_right = 360.0
+offset_bottom = -166.0
+rotation = -0.103166
+theme_override_colors/font_color = Color(0.228454, 0.228454, 0.228454, 1)
+theme_override_fonts/font = ExtResource("5_peibt")
+theme_override_font_sizes/font_size = 42
+text = "CITY IN HAVOC AFTER FELINE ATTACK"
+
+[node name="Label3" type="Label" parent="Paper"]
+offset_left = 180.0
+offset_top = -258.55
+offset_right = 468.0
+offset_bottom = -183.55
+rotation = -0.105556
+theme_override_colors/font_color = Color(0.228454, 0.228454, 0.228454, 1)
+theme_override_constants/line_spacing = -8
+theme_override_fonts/font = ExtResource("5_peibt")
+theme_override_font_sizes/font_size = 32
+text = "STREETS CLEANER
+THAN EVER
+"
+
+[node name="Line2D" type="Line2D" parent="Paper"]
+position = Vector2(-75, 3.302)
+points = PackedVector2Array(-405, -244, 526, -342.302)
+width = 4.0
+default_color = Color(0, 0, 0, 0.662745)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="Paper"]
+position = Vector2(615, 266)
+points = PackedVector2Array(-405, -244, -110, -275)
+width = 2.0
+default_color = Color(0, 0, 0, 0.556863)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="Paper"]
+position = Vector2(583, -19)
+points = PackedVector2Array(-405, -244, -110, -275)
+width = 2.0
+default_color = Color(0, 0, 0, 0.556863)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Portrait" type="Sprite2D" parent="Paper"]
+position = Vector2(31, -97)
+rotation = -0.109649
+scale = Vector2(0.620319, 0.620319)
+texture = ExtResource("6_e6nxr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(46, -48)
+
+[node name="Restart" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 458.0
+offset_top = 353.0
+offset_right = 690.0
+offset_bottom = 452.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_hover_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_focus_color = Color(0.180392, 0.454902, 0.521569, 1)
+theme_override_colors/font_color = Color(0.181473, 0.455373, 0.520366, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_lov6a")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_lov6a")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lov6a")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_lov6a")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_lov6a")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_lov6a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fywh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_lov6a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lov6a")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_lov6a")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lov6a")
+text = "Restart"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

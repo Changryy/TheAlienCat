@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx8clqpntmqmy"]
+
+[ext_resource type="PackedScene" uid="uid://vucgvegws4xn" path="res://Game/Objects/Items/Item.tscn" id="1_cwnu7"]
+[ext_resource type="Texture2D" uid="uid://suuu7hkdppby" path="res://Game/Entities/Vacuum/AlienCatStuffNozzle.png" id="2_h3t3w"]
+[ext_resource type="Script" path="res://Game/Entities/Vacuum/Activate.gd" id="3_td2eu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_amba4"]
+radius = 46.0
+height = 270.0
+
+[sub_resource type="Gradient" id="Gradient_om1uh"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mde5n"]
+gradient = SubResource("Gradient_om1uh")
+width = 84
+height = 29
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="VacuumTip" groups=["vacuumtip"] instance=ExtResource("1_cwnu7")]
+collision_mask = 0
+hold_index = 4
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+unique_name_in_owner = true
+position = Vector2(-84, -16)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_amba4")
+
+[node name="Middle" parent="." index="1"]
+position = Vector2(0, -37)
+
+[node name="Shadow" type="Sprite2D" parent="Middle" index="0"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0, 41)
+texture = SubResource("GradientTexture2D_mde5n")
+
+[node name="Line2D" type="Line2D" parent="Middle" index="1"]
+position = Vector2(-2, 37)
+points = PackedVector2Array(-35, -45, -43, -50, -56, -62, -66, -75, -71, -85, -75, -102, -78, -122, -78, -135, -76, -153, -72, -171, -67, -180, -61, -184, -53, -186, -43, -185, -37, -181, -32, -174, -30, -164, -30, -150, -31, -139, -33, -128, -38, -113, -46, -94, -54, -75, -59, -63, -67.2709, -60.5187, -74, -59, -220, -59)
+width = 24.0
+default_color = Color(0.345098, 0.345098, 0.345098, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="Middle" index="2"]
+unique_name_in_owner = true
+position = Vector2(-4, 12)
+texture = ExtResource("2_h3t3w")
+
+[node name="Activate" type="Node" parent="." index="2"]
+script = ExtResource("3_td2eu")

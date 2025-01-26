@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyh8m126seo3v"]
+
+[ext_resource type="PackedScene" uid="uid://2qyk3rifang3" path="res://Game/Objects/Furniture/Furniture.tscn" id="1_3amrd"]
+[ext_resource type="Texture2D" uid="uid://crb2geajuunw2" path="res://Game/Objects/Obstacles/Textures/AlienCatStuffRoadBlock.png" id="2_k8oew"]
+
+[sub_resource type="Gradient" id="Gradient_4nxdn"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i5hs2"]
+gradient = SubResource("Gradient_4nxdn")
+width = 274
+height = 184
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Barricade" instance=ExtResource("1_3amrd")]
+texture_filter = 1
+
+[node name="Shadow" type="Sprite2D" parent="." index="0"]
+z_index = -1
+position = Vector2(30.8, -82)
+skew = 0.621337
+texture = SubResource("GradientTexture2D_i5hs2")
+
+[node name="AlienCatStuffCloset" type="Sprite2D" parent="." index="1"]
+position = Vector2(24.8, -246)
+texture = ExtResource("2_k8oew")
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+position = Vector2(-61.2, -14)
+polygon = PackedVector2Array(9, -149, -106, 16, 193, 15, 280, -149)

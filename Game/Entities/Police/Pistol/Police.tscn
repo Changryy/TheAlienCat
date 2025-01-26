@@ -1,0 +1,184 @@
+[gd_scene load_steps=19 format=3 uid="uid://0n38ndq002t2"]
+
+[ext_resource type="Script" path="res://Game/Entities/AI/Enemy.gd" id="1_rhx8r"]
+[ext_resource type="Texture2D" uid="uid://c7boy84et01eq" path="res://Game/Entities/Police/Pistol/AlienCatStuffCop3.png" id="2_68bi1"]
+[ext_resource type="Texture2D" uid="uid://dqk6vf7q15the" path="res://Game/Entities/Police/Pistol/AlienCatStuffCop2.png" id="3_8kblx"]
+[ext_resource type="Script" path="res://Game/Entities/Suck.gd" id="3_we6rr"]
+[ext_resource type="Texture2D" uid="uid://c4uju8wh4t2cd" path="res://Game/Entities/Police/Pistol/AlienCatStuffCop1.png" id="4_p3hck"]
+[ext_resource type="Texture2D" uid="uid://dxc7tjxi8b1gn" path="res://Game/Entities/Police/Pistol/AlienCatStuffCop4.png" id="5_uptmt"]
+[ext_resource type="Texture2D" uid="uid://ccvtdbe63stf4" path="res://Game/Entities/Police/Pistol/AlienCatStuffCop5.png" id="6_d8svs"]
+[ext_resource type="Script" path="res://Game/Entities/AI/Statemachine.gd" id="6_u1l3q"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/State.gd" id="7_78nuc"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/GoTo.gd" id="8_p5m15"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/WalkToPlayer.gd" id="8_yri5g"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/Reposition.gd" id="9_8qsw2"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/Aim.gd" id="10_84tvk"]
+[ext_resource type="Script" path="res://Game/Entities/AI/States/Shoot.gd" id="12_np28i"]
+
+[sub_resource type="Gradient" id="Gradient_igew7"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kdheg"]
+gradient = SubResource("Gradient_igew7")
+width = 209
+height = 89
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xpsy"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i1ll8"]
+radius = 1200.0
+
+[node name="Police" type="CharacterBody2D"]
+texture_filter = 1
+collision_layer = 256
+collision_mask = 70
+script = ExtResource("1_rhx8r")
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Middle" type="Marker2D" parent="Visuals"]
+unique_name_in_owner = true
+position = Vector2(0, -282)
+
+[node name="Barrel" type="Marker2D" parent="Visuals/Middle"]
+unique_name_in_owner = true
+position = Vector2(212, -4)
+
+[node name="Shadow" type="Sprite2D" parent="Visuals/Middle"]
+z_index = -1
+position = Vector2(-4, 279)
+texture = SubResource("GradientTexture2D_kdheg")
+
+[node name="Idle" type="Sprite2D" parent="Visuals/Middle"]
+visible = false
+position = Vector2(0, -20)
+texture = ExtResource("4_p3hck")
+flip_h = true
+
+[node name="Alert" type="Sprite2D" parent="Visuals/Middle"]
+visible = false
+position = Vector2(25, 1.5)
+texture = ExtResource("3_8kblx")
+flip_h = true
+
+[node name="Aiming" type="Sprite2D" parent="Visuals/Middle"]
+visible = false
+position = Vector2(47, 1.5)
+texture = ExtResource("2_68bi1")
+flip_h = true
+
+[node name="Running" type="Sprite2D" parent="Visuals/Middle"]
+visible = false
+position = Vector2(-23, 10)
+texture = ExtResource("5_uptmt")
+flip_h = true
+
+[node name="Sucked" type="Sprite2D" parent="Visuals/Middle"]
+position = Vector2(-56, -48)
+texture = ExtResource("6_d8svs")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_5xpsy")
+
+[node name="Detection" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+input_pickable = false
+monitorable = false
+
+[node name="Detect" type="CollisionShape2D" parent="Detection"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_i1ll8")
+debug_color = Color(0.701961, 0, 0.694118, 0.0313726)
+
+[node name="Suck" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_we6rr")
+entity = "Human with badge"
+is_alive = true
+spiral = false
+vacuum_index = 1
+
+[node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-2.00002, -289.5)
+scale = Vector2(32.7, 42.25)
+
+[node name="Statemachine" type="Node" parent="." node_paths=PackedStringArray("sucked_state", "activation_state", "detection", "sprites")]
+script = ExtResource("6_u1l3q")
+sucked_state = NodePath("Sucked")
+activation_state = NodePath("WalkToPlayer")
+detection = NodePath("../Detection")
+sprites = [NodePath("../Visuals/Middle/Idle"), NodePath("../Visuals/Middle/Alert"), NodePath("../Visuals/Middle/Aiming"), NodePath("../Visuals/Middle/Running"), NodePath("../Visuals/Middle/Sucked")]
+
+[node name="Idle" type="Node" parent="Statemachine"]
+script = ExtResource("7_78nuc")
+sprite = 0
+face_player = true
+next_if_found_player = true
+
+[node name="Alert" type="Node" parent="Statemachine"]
+script = ExtResource("7_78nuc")
+sprite = 1
+face_player = true
+duration_time_based = true
+duration_normal = 0.5
+duration_hard = 0.3
+
+[node name="WalkToPlayer" type="Node" parent="Statemachine"]
+script = ExtResource("8_yri5g")
+speed_normal = 500.0
+speed_hard = 600.0
+sprite = 3
+next_if_found_player = true
+send_alert = true
+
+[node name="Reposition" type="Node" parent="Statemachine"]
+script = ExtResource("9_8qsw2")
+only_y = true
+destination_tresh = 16.0
+speed_normal = 450.0
+speed_hard = 550.0
+sprite = 3
+face_player = true
+prev_if_lost_player = true
+send_alert = true
+
+[node name="Aim" type="Node" parent="Statemachine"]
+script = ExtResource("10_84tvk")
+lock_y = true
+sprite = 2
+face_player = true
+duration_time_based = true
+duration_normal = 0.5
+duration_hard = 0.3
+
+[node name="Shoot" type="Node" parent="Statemachine"]
+script = ExtResource("12_np28i")
+sprite = 2
+face_player = true
+duration_immidiate = true
+
+[node name="MuzzleFlash" type="Node" parent="Statemachine"]
+script = ExtResource("7_78nuc")
+sprite = 2
+duration_time_based = true
+duration_easy = 0.1
+duration_normal = 0.1
+duration_hard = 0.1
+
+[node name="GoTo" type="Node" parent="Statemachine" node_paths=PackedStringArray("state")]
+script = ExtResource("8_p5m15")
+state = NodePath("../Reposition")
+
+[node name="Sucked" type="Node" parent="Statemachine"]
+script = ExtResource("7_78nuc")
+sprite = 4
+face_player = true
+
+[connection signal="screen_entered" from="Notifier" to="." method="delete_if_friendly"]

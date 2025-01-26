@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv0t5u26rpnae"]
+
+[ext_resource type="PackedScene" uid="uid://vucgvegws4xn" path="res://Game/Objects/Items/Item.tscn" id="1_wr320"]
+[ext_resource type="Texture2D" uid="uid://2fb8bd6ip66e" path="res://Game/Objects/Items/Textures/AlienCatStuffBanana.png" id="2_g60h2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7emq"]
+radius = 18.0
+height = 106.0
+
+[sub_resource type="Gradient" id="Gradient_ch43h"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_821gd"]
+gradient = SubResource("Gradient_ch43h")
+width = 119
+height = 54
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Banana" instance=ExtResource("1_wr320")]
+hold_index = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="." index="0"]
+unique_name_in_owner = true
+position = Vector2(-2, -2)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_u7emq")
+
+[node name="Middle" parent="." index="1"]
+position = Vector2(0, -21)
+
+[node name="Shadow" type="Sprite2D" parent="Middle" index="0"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0, 20)
+texture = SubResource("GradientTexture2D_821gd")
+
+[node name="Sprite" type="Sprite2D" parent="Middle" index="1"]
+unique_name_in_owner = true
+position = Vector2(-3, -3)
+texture = ExtResource("2_g60h2")
+
+[node name="Suck" parent="." index="2"]
+entity = "Banana peel"

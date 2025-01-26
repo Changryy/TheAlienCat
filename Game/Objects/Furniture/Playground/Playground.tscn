@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://k8xsquh868qg"]
+
+[ext_resource type="PackedScene" uid="uid://2qyk3rifang3" path="res://Game/Objects/Furniture/Furniture.tscn" id="1_l3hok"]
+[ext_resource type="Texture2D" uid="uid://c8kumy6kipfdt" path="res://Game/Objects/Furniture/Playground/AlienCatStuffCatThing.png" id="2_h310p"]
+
+[sub_resource type="Gradient" id="Gradient_vxgwb"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_or2n4"]
+gradient = SubResource("Gradient_vxgwb")
+width = 464
+height = 99
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brc28"]
+size = Vector2(390, 76)
+
+[node name="Playground" node_paths=PackedStringArray("item_spots") instance=ExtResource("1_l3hok")]
+item_spots = [NodePath("Sprite2D")]
+
+[node name="Shadow" type="Sprite2D" parent="." index="0"]
+z_index = -1
+position = Vector2(0, -22)
+texture = SubResource("GradientTexture2D_or2n4")
+
+[node name="AlienCatStuffCloset" type="Sprite2D" parent="." index="1"]
+position = Vector2(-2, -227)
+texture = ExtResource("2_h310p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(9, -37)
+shape = SubResource("RectangleShape2D_brc28")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+position = Vector2(12, -166)
+rotation = 0.356207

@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnyabgi7ey34k"]
+
+[ext_resource type="Script" path="res://Game/Objects/Pickups/Tape/Tape.gd" id="1_m5v68"]
+[ext_resource type="Texture2D" uid="uid://bo3edx6vebhh3" path="res://Game/Objects/Pickups/Tape/AlienCatStuffDuctTape.png" id="2_4goe7"]
+
+[sub_resource type="Gradient" id="Gradient_hq113"]
+colors = PackedColorArray(0, 0, 0, 0.278431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iu62i"]
+gradient = SubResource("Gradient_hq113")
+width = 104
+height = 44
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_umm3u"]
+radius = 27.0185
+
+[sub_resource type="Animation" id="Animation_gr7mt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -59)]
+}
+
+[sub_resource type="Animation" id="Animation_hyfpm"]
+resource_name = "hover"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-1.93187, 1),
+"update": 0,
+"values": [Vector2(0, -70), Vector2(0, -50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4cig"]
+_data = {
+"RESET": SubResource("Animation_gr7mt"),
+"hover": SubResource("Animation_hyfpm")
+}
+
+[node name="Tape" type="Area2D"]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+script = ExtResource("1_m5v68")
+text = "Piece of a broken heart"
+active = true
+
+[node name="Shadow" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+texture = SubResource("GradientTexture2D_iu62i")
+
+[node name="Sprite" type="Sprite2D" parent="Shadow"]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, -59)
+texture = ExtResource("2_4goe7")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_umm3u")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_h4cig")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3.5, -68)
+scale = Vector2(9.35, 11)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
