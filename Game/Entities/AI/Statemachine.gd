@@ -22,6 +22,8 @@ func _ready() -> void:
 	
 	await actor.ready
 	
+	show_sprite()
+	
 	if actor.has_meta("suck"):
 		actor.get_meta("suck").getting_sucked.connect(go_to.bind(sucked_state))
 	
