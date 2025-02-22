@@ -212,10 +212,12 @@ func take_hit() -> void:
 	get_parent().add_child(right)
 	
 	sprite.hide()
+	%Hit.modulate.a = 1
 	
 	var tween2 := create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
-	tween2.tween_method(func(x: float): ((%Cat as Sprite2D).material as ShaderMaterial
-		).set_shader_parameter("white", x), 1., 0., .2)
+	tween2.tween_property(%Hit, ^"modulate:a", 0., .2)
+	#tween2.tween_method(func(x: float): ((%Cat as Sprite2D).material as ShaderMaterial
+		#).set_shader_parameter("white", x), 1., 0., .2)
 	if Global.health > 0: tween2.tween_callback(func(): invincible = false).set_delay(.8)
 	else: die()
 

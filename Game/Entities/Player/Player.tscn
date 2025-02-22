@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d2yanptj8uep2"]
+[gd_scene load_steps=44 format=3 uid="uid://d2yanptj8uep2"]
 
 [ext_resource type="Script" path="res://Game/Entities/Player/player.gd" id="1_r4dhy"]
 [ext_resource type="PackedScene" uid="uid://d23oro2u5usp6" path="res://Game/Objects/Items/Heart.tscn" id="2_vv2tu"]
@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://suuu7hkdppby" path="res://Game/Entities/Vacuum/AlienCatStuffNozzle.png" id="5_2edit"]
 [ext_resource type="Texture2D" uid="uid://b1hqqltsh7dgw" path="res://Game/Entities/Player/AlienCatStuff2.png" id="5_2istk"]
 [ext_resource type="Texture2D" uid="uid://bwes4c5y2aqwt" path="res://Game/Entities/Player/AlienCatStuff1.png" id="5_c56e2"]
+[ext_resource type="Texture2D" uid="uid://c8ikl4lwjwple" path="res://Game/Entities/Player/AlienCatHit.png" id="7_7jhvv"]
 [ext_resource type="Texture2D" uid="uid://5fxvh2m3tm2k" path="res://Game/Entities/Human/AlienCatStuffHuman4.png" id="8_u7kum"]
 [ext_resource type="Texture2D" uid="uid://b3lxoycynjlip" path="res://Game/Entities/Player/AlienCatStuffHeartFull.png" id="9_xxi31"]
-[ext_resource type="Material" uid="uid://c5j46aj8mnqch" path="res://Game/Entities/Player/VacuumParticles.tres" id="10_6nu1m"]
 [ext_resource type="Texture2D" uid="uid://jerotc2r3wat" path="res://Game/Entities/Player/AlienCatStuffHeartTape.png" id="11_nr1xr"]
 [ext_resource type="Texture2D" uid="uid://bw1h1f7yrj7n" path="res://Game/Entities/Police/Pistol/AlienCatStuffCop6.png" id="13_n7o3i"]
 
@@ -38,6 +38,13 @@ region = Rect2(235, 166, 193, 121)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mta07"]
 atlas = ExtResource("4_4lxpx")
 region = Rect2(253, 285, 152, 106)
+
+[sub_resource type="Curve" id="Curve_1tmc8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.57847, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_1x81l"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.278431)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgaga"]
 radius = 39.0
@@ -240,6 +247,11 @@ texture = ExtResource("5_c56e2")
 unique_name_in_owner = true
 texture = ExtResource("5_2istk")
 
+[node name="Hit" type="Sprite2D" parent="Visuals/Cat"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("7_7jhvv")
+
 [node name="Cat2" type="Sprite2D" parent="Visuals"]
 unique_name_in_owner = true
 visible = false
@@ -310,13 +322,25 @@ unique_name_in_owner = true
 position = Vector2(165, -103)
 rotation = 0.634181
 
-[node name="Particles" type="GPUParticles2D" parent="Visuals/VacuumPoint"]
+[node name="Particles" type="CPUParticles2D" parent="Visuals/VacuumPoint"]
 unique_name_in_owner = true
+position = Vector2(-3.22223, 2.37007)
 amount = 64
-process_material = ExtResource("10_6nu1m")
-texture = ExtResource("4_14pu5")
 lifetime = 0.3
+fixed_fps = 30
 local_coords = true
+draw_order = 1
+texture = ExtResource("4_14pu5")
+emission_shape = 1
+emission_sphere_radius = 93.36
+gravity = Vector2(0, 0)
+radial_accel_min = -1000.0
+radial_accel_max = -1000.0
+scale_amount_min = 0.01
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_1tmc8")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("Gradient_1x81l")
 
 [node name="Sprites" type="Node2D" parent="Visuals/VacuumPoint"]
 unique_name_in_owner = true

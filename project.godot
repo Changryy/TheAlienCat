@@ -12,7 +12,7 @@ config_version=5
 
 config/name="The Alien Cat"
 config/description="Description"
-run/main_scene="res://Game/Levels/LoadMaterials/LoadingScreen.tscn"
+run/main_scene="res://Game/Levels/Start/Start.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 
@@ -100,3 +100,8 @@ esc={
 [physics]
 
 2d/default_gravity=0.0
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

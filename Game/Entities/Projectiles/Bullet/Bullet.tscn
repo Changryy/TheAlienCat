@@ -1,7 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dbx3quodwyahw"]
 
 [ext_resource type="Script" path="res://Game/Entities/Projectiles/Bullet/Bullet.gd" id="1_y2eqn"]
-[ext_resource type="Material" uid="uid://dlgoqvcbhuudy" path="res://Game/Entities/Projectiles/Bullet/BulletParticles.tres" id="2_xfnkh"]
 [ext_resource type="Texture2D" uid="uid://cx8c486ox4gv0" path="res://Game/Entities/Player/Air.png" id="3_gp701"]
 [ext_resource type="Script" path="res://Game/Entities/Suck.gd" id="3_j30i6"]
 [ext_resource type="Texture2D" uid="uid://dy7gx8fyk1wsm" path="res://Game/Entities/Projectiles/Bullet/AlienCatStuffBullet3.png" id="3_w0rnx"]
@@ -16,6 +15,10 @@ height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Curve" id="Curve_b1p5v"]
+_data = [Vector2(0, 0), 0.0, 13.3029, 0, 0, Vector2(0.154742, 1), 0.0, -2.99243, 0, 0, Vector2(1, 0), -0.072894, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jcg2g"]
 radius = 48.0
@@ -38,15 +41,21 @@ z_index = -1
 scale = Vector2(2.80952, 3)
 texture = SubResource("GradientTexture2D_pbrtx")
 
-[node name="Particles" type="GPUParticles2D" parent="Middle"]
+[node name="Particles" type="CPUParticles2D" parent="Middle"]
 unique_name_in_owner = true
 position = Vector2(-10, -2.30926e-14)
 rotation = 3.14159
 amount = 64
-process_material = ExtResource("2_xfnkh")
-texture = ExtResource("3_gp701")
 lifetime = 3.0
-visibility_rect = Rect2(-100, -250, 5000, 500)
+fixed_fps = 30
+draw_order = 1
+texture = ExtResource("3_gp701")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 44.24
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_b1p5v")
 
 [node name="Sprite" type="Sprite2D" parent="Middle"]
 unique_name_in_owner = true
