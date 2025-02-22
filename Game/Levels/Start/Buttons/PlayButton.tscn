@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://6qyrdfawap8q"]
+
+[ext_resource type="Script" path="res://Game/Levels/Start/Buttons/PlayButton.gd" id="1_1n7l1"]
+[ext_resource type="Texture2D" uid="uid://lhxjrr3qtgt1" path="res://Game/Levels/Start/Buttons/Play.png" id="2_6qfef"]
+[ext_resource type="Texture2D" uid="uid://v8y2t502e4go" path="res://Game/Levels/Start/Buttons/PlayShadow.png" id="3_v1q0h"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y7sbh"]
+resource_local_to_scene = true
+frequency = 0.0002
+fractal_octaves = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g3u66"]
+resource_local_to_scene = true
+
+[node name="PlayButton" type="Button"]
+offset_right = 135.0
+offset_bottom = 73.0
+focus_mode = 0
+flat = true
+script = ExtResource("1_1n7l1")
+texture = ExtResource("2_6qfef")
+shadow = ExtResource("3_v1q0h")
+idle_noise = SubResource("FastNoiseLite_y7sbh")
+hover_noise = SubResource("FastNoiseLite_g3u66")
+hover_amp = 3.0
+
+[node name="Offset" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = 3
+position = Vector2(67.5, 36.5)
+
+[node name="Texture" type="Sprite2D" parent="Offset"]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(1.04743, -0.529677)
+texture = ExtResource("2_6qfef")
+
+[node name="ShadowTransform" type="RemoteTransform2D" parent="Offset/Texture"]
+unique_name_in_owner = true
+position = Vector2(8, 8)
+remote_path = NodePath("../../Shadow")
+update_rotation = false
+update_scale = false
+
+[node name="Shadow" type="Sprite2D" parent="Offset"]
+unique_name_in_owner = true
+z_index = -1
+texture_filter = 1
+position = Vector2(9.04742, 7.47032)
+texture = ExtResource("3_v1q0h")

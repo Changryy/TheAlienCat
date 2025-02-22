@@ -55,6 +55,26 @@ func _ready() -> void:
 	stage = MENU
 	Global.vaccumed.connect(check_dust)
 	Global.vacuum_equipped.connect(func(): stage = VACUUM)
+	
+	%Title.position.y = 485
+	var tween := create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_interval(.5)
+	tween.tween_property(%Title, "position:y", start_pos, .8)
+	tween.tween_callback(func(): float_time = 1)
+	
+
+var start_pos: float = 400
+var float_time: float = -1
+
+func _process(delta: float) -> void:
+	if float_time < 0: return
+	float_time += delta
+	while float_time > 2:
+		float_time -= 2
+	
+	%Title.position.y = start_pos + ease(absf(float_time - 1), -2) * 10
+	
+
 
 func check_dust() -> void:
 	var nodes := get_tree().get_nodes_in_group("Dust")
@@ -81,8 +101,17 @@ func _on_battery_picked_up() -> void:
 func _on_start_pressed() -> void:
 	if stage != MENU: return
 	stage = START
+	
+	for x in [%Credits, %Settings, %Play]:
+		x.disable()
+	
 	%Player.visibility_changed.connect(start_animation)
 	%Player.wake_up()
+	
+	for x in [%Play, %Settings, %Credits]:
+		x.explode()
+		await get_tree().create_timer(.3).timeout
+
 
 func start_animation() -> void:
 	%Camera.make_current()
