@@ -4,11 +4,12 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y7sbh"]
 resource_local_to_scene = true
-frequency = 0.0002
+frequency = 0.02
 fractal_octaves = 1
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_g3u66"]
 resource_local_to_scene = true
+frequency = 1.0
 
 [node name="PlayButton" type="Button"]
 offset_right = 135.0

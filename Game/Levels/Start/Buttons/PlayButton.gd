@@ -34,13 +34,16 @@ func _ready() -> void:
 	
 	for x in [idle_noise, hover_noise]:
 		x.seed = randi()
-		x.offset.x = randi_range(-500, 500)
-		x.offset.y = randi_range(-500, 500)
+		x.offset.x = randi_range(-200, 200)
+		x.offset.y = randi_range(-200, 200)
 	
 	state = ButtonState.Idle
 
 
-func _process(_delta: float) -> void:
+const LIMIT: float = 10_000
+var t: float = 0
+
+func _process(delta: float) -> void:
 	if !Engine.is_editor_hint() and state != ButtonState.Explode and !disabled:
 		if button_pressed:
 			state = ButtonState.Pressed
@@ -49,6 +52,12 @@ func _process(_delta: float) -> void:
 		else:
 			state = ButtonState.Idle
 	
+	t += delta * 10
+	
+	while t > LIMIT:
+		t -= LIMIT
+	
+	var val: float = absf(t * 2 / LIMIT - 1) * LIMIT / 2.
 	
 	%Offset.position = get_rect().size / 2.
 	
@@ -57,14 +66,14 @@ func _process(_delta: float) -> void:
 			%Shadow.show()
 			%Texture.z_index = 0
 			%Texture.scale = Vector2.ONE
-			%Texture.position.x = idle_noise.get_noise_2d(Time.get_ticks_msec(), 0) * idle_amp
-			%Texture.position.y = idle_noise.get_noise_2d(0, Time.get_ticks_msec()) * idle_amp
+			%Texture.position.x = idle_noise.get_noise_2d(val, 0) * idle_amp
+			%Texture.position.y = idle_noise.get_noise_2d(0, val) * idle_amp
 		ButtonState.Hovered:
 			%Shadow.show()
 			%Texture.z_index = 1
 			%Texture.scale = Vector2.ONE * 1.1
-			%Texture.position.x = hover_noise.get_noise_2d(Time.get_ticks_msec(), 0) * hover_amp
-			%Texture.position.y = hover_noise.get_noise_2d(0, Time.get_ticks_msec()) * hover_amp
+			%Texture.position.x = hover_noise.get_noise_2d(val, 0) * hover_amp
+			%Texture.position.y = hover_noise.get_noise_2d(0, val) * hover_amp
 		ButtonState.Pressed:
 			%Shadow.hide()
 			%Texture.z_index = -1
